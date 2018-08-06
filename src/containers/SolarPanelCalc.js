@@ -22,10 +22,10 @@ class SolarPanelCalc extends Component {
   constructor(){
     super();
     this.state = {
-      AvgMonthlyBill: 0,
-      MaxProductionAllowed: 0,
-      CreditRate: 0,
-      PerPanelProduction: 0,
+      AvgMonthlyBill: 200,
+      MaxProductionAllowed: 120,
+      CreditRate: .09,
+      PerPanelProduction: 46.63,
       MaxPanels: 0,
     }
     this._handleChange = this._handleChange.bind(this);
@@ -42,7 +42,7 @@ class SolarPanelCalc extends Component {
   }
 
   _handleSubmit(){
-    let calc = (this.state.AvgMonthlyBill * (this.state.MaxProductionAllowed/2))/(this.state.CreditRate * this.state.PerPanelProduction);
+    let calc = (this.state.AvgMonthlyBill * (this.state.MaxProductionAllowed/100))/(this.state.CreditRate * this.state.PerPanelProduction);
     this.setState({
       MaxProductionAllowed: this.state.MaxProductionAllowed,
       MaxPanels: calc,});
@@ -57,7 +57,7 @@ class SolarPanelCalc extends Component {
           <h1>Admin</h1>
           <p>Input Go Smart Solar will be changing on the backend</p>
           <label>
-            Production of 1 panel (kwh):
+            Production of 1 panel (kwh/month):
             <input
               name="PerPanelProduction"
               type="number"
@@ -66,12 +66,12 @@ class SolarPanelCalc extends Component {
             />
           </label>
           <label>
-            $ credit per kwh:
+            Sunbloc Credt ($/kwh):
             <input
               name="CreditRate"
               type="number"
               onChange={this._handleChange}
-              defaultValue={this.state.PerPanelProduction}
+              defaultValue={this.state.CreditRate}
             />
           </label>
           <label>
@@ -80,7 +80,7 @@ class SolarPanelCalc extends Component {
               name="MaxProductionAllowed"
               type="number"
               onChange={this._handleChange}
-              defaultValue={this.state.PerPanelProduction}
+              defaultValue={this.state.MaxProductionAllowed}
             />
           </label>
         </AdminContainer>
@@ -89,12 +89,12 @@ class SolarPanelCalc extends Component {
           <h1>Customer</h1>
           <p>Input that the customer will be inputting and changing</p>
           <label>
-            Average Monthly Bill:
+            Average Monthly Bill ($):
             <input
               name="AvgMonthlyBill"
               type="number"
               onChange={this._handleChange}
-              defaultValue={this.state.PerPanelProduction}
+              defaultValue={this.state.AvgMonthlyBill}
             />
           </label>
         </CustomerContainer>
