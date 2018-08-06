@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 `;
 const Logo = styled.img`
-  width: 60px;
+  width: 80px;
   height: 60px;
   margin: 0;
   padding: 10px;

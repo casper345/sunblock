@@ -17,7 +17,6 @@ const CustomerContainer = styled.div`
    align-items: center;
 `;
 
-
 class SolarPanelCalc extends Component {
   constructor(){
     super();
@@ -27,9 +26,27 @@ class SolarPanelCalc extends Component {
       CreditRate: .09,
       PerPanelProduction: 46.63,
       MaxPanels: 0,
+      isMonthly: false,
+      isAverage: true,
     }
+    this._handleAverage = this._handleAverage.bind(this);
+    this._handleMonthly = this._handleMonthly.bind(this);
     this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleAverage(){
+    this.setState({
+      isMonthly: false,
+      isAverage: true,
+    });
+  }
+
+  _handleMonthly(){
+    this.setState({
+      isMonthly: true,
+      isAverage: false,
+    });
   }
 
   _handleChange(event){
@@ -88,14 +105,31 @@ class SolarPanelCalc extends Component {
         <CustomerContainer>
           <h1>Customer</h1>
           <p>Input that the customer will be inputting and changing</p>
+
+          {/* <button type="button"
+            onClick={this._handleMonthly}
+            >Calculate Monthly</button>
+          <button type="button"
+            onClick={this._handleAverage}
+            >Calculate Average</button> */}
           <label>
             Average Monthly Bill ($):
-            <input
-              name="AvgMonthlyBill"
-              type="number"
-              onChange={this._handleChange}
-              defaultValue={this.state.AvgMonthlyBill}
-            />
+            { this.state.isAverage &&
+              <input
+                name="AvgMonthlyBill"
+                type="number"
+                onChange={this._handleChange}
+                defaultValue={this.state.AvgMonthlyBill}
+              />
+            }
+            {/* { this.state.isMonthly &&
+              <input
+                name="AvgMonthlyBill"
+                type="number"
+                onChange={this._handleChange}
+                defaultValue={this.state.AvgMonthlyBill}
+              />
+            } */}
           </label>
         </CustomerContainer>
 
