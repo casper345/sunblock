@@ -1,4 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+`;
+const AdminContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+`;
+const CustomerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+`;
+
 
 class SolarPanelCalc extends Component {
   constructor(){
@@ -24,7 +42,7 @@ class SolarPanelCalc extends Component {
   }
 
   _handleSubmit(){
-    let calc = (this.state.AvgMonthlyBill * this.state.MaxProductionAllowed)/(this.state.CreditRate * this.state.PerPanelProduction);
+    let calc = (this.state.AvgMonthlyBill * (this.state.MaxProductionAllowed/2))/(this.state.CreditRate * this.state.PerPanelProduction);
     this.setState({
       MaxProductionAllowed: this.state.MaxProductionAllowed,
       MaxPanels: calc,});
@@ -34,7 +52,8 @@ class SolarPanelCalc extends Component {
   render(){
     return(
       <form>
-        <div>
+        <Container>
+        <AdminContainer>
           <h1>Admin</h1>
           <p>Input Go Smart Solar will be changing on the backend</p>
           <label>
@@ -64,9 +83,9 @@ class SolarPanelCalc extends Component {
               defaultValue={this.state.PerPanelProduction}
             />
           </label>
-        </div>
+        </AdminContainer>
 
-        <div>
+        <CustomerContainer>
           <h1>Customer</h1>
           <p>Input that the customer will be inputting and changing</p>
           <label>
@@ -78,12 +97,13 @@ class SolarPanelCalc extends Component {
               defaultValue={this.state.PerPanelProduction}
             />
           </label>
-        </div>
+        </CustomerContainer>
 
         <button type="button"
           onClick={this._handleSubmit}>Calc</button>
 
-        <h4>{this.state.MaxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed} percentage save</h4>
+        <h4>{this.state.MaxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed}% save</h4>
+        </Container>
       </form>
     )
   }
