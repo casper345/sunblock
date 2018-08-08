@@ -4,15 +4,11 @@ import styled from 'styled-components';
 
 import LogoIcon from '../assets/images/logo.png';
 
-import Color from '../constants/Color';
-
 const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  background-color: ${Color.lightGrey};
   @media (max-width:700px){
     flex-direction: column;
     justify-content: center;
@@ -30,7 +26,6 @@ const Logo = styled.img`
 const List = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   @media (max-width: 700px){
     justify-content: center;
   }
@@ -39,7 +34,10 @@ const ListItem = styled.div`
   padding: 25px;
 `;
 const StyledLink = styled(Link)`
+  font-size: .7rem;
+  font-weight: 200;
   text-decoration: none;
+  text-transform: uppercase;
   color: #000;
 `;
 
@@ -50,8 +48,10 @@ const NavigationBar = () =>
     />
     <List>
       <ListItem><StyledLink to ="/">Home</StyledLink></ListItem>
-      <ListItem><StyledLink to="/design-your-solar">Design Your Solar</StyledLink></ListItem>
-      <ListItem><StyledLink to="/contact-us">Contact Us</StyledLink></ListItem>
+      <ListItem><StyledLink to ="/">How it Works</StyledLink></ListItem>
+      <ListItem><StyledLink to="/design-your-solar">Design Yours</StyledLink></ListItem>
+      <ListItem><StyledLink to="/contact-us">Blog</StyledLink></ListItem>
+      <ListItem><StyledLink to="/contact-us">FAQ</StyledLink></ListItem>
     </List>
   </Container>
 

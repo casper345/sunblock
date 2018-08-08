@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter, Route } from 'react-router-dom'
 
-import HomeScreen from './screens/HomeScreen'
+// TODO: shouldnt need index
+import HomeScreen from './screens/HomeScreen/index'
 import DesignScreen from './screens/DesignScreen'
 import ContactScreen from './screens/ContactScreen'
 

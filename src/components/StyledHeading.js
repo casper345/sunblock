@@ -3,23 +3,27 @@ import Color from '../constants/Color'
 
 
 export const H1 = styled.h1`
-  font-size: 3rem;
-  font-weight: 200;
+  // margin: 0;
+  font-size: 2rem;
+  font-weight: 300;
   color: ${Color.primaryColor};
 `;
 export const H2 = styled.h2`
-  font-size: 2rem;
-
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 200;
 `;
 export const H3 = styled.h3`
-  font-size: 1rem;
-
+  margin: 0;
+  font-size: .9rem;
+  font-weight: 200;
 `;
 export const H4 = styled.h4`
+  margin: 0;
   font-size: .8rem;
-
 `;
 export const P = styled.p`
-  font-size: .5rem;
-
+  margin: 0;
+  font-size: .7rem;
+  color: grey;
 `;
