@@ -20,15 +20,15 @@ const Header = () =>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <P>Work for any home with any food</P>
+        <P>Even with lots of shade</P>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <P>Work for any home with any food</P>
+        <P>Even Apartments and Rental homes</P>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <P>Work for any home with any food</P>
+        <P>HOA & Historic Neighborhoods</P>
       </Column>
     </Row>
   </Container>
@@ -52,13 +52,16 @@ const Section = styled.div`
   background-color: ${Color.lightGrey};
 `;
 const Column = styled.div`
-  width: 15%;
+  width: 20%;
+  max-width: 150px;
+  min-width: 80px;
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin: 0;
 `;
 const Row = styled.div`
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

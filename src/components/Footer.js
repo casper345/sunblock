@@ -11,13 +11,18 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${Color.lightBrown};
+  background-color: ${Color.primaryColor};
 `;
 const Icon = styled.img`
   width: 25px;
   height: 25px;
   margin: 15px;
   margin-bottom: 0px;
+`;
+const EmailText = styled.p`
+  font-size: .8rem;
+  letter-spacing: 3px;
+  color: white;
 `;
 const CopyrightText = styled.p`
   font-size: .5rem;
@@ -40,7 +45,7 @@ const SocialMedia = () =>
 const Footer = () =>
 <Container>
   <SocialMedia />
-  <H4>info@gosmartsolar.com</H4>
+  <EmailText>info@gosmartsolar.com</EmailText>
   <CopyrightText>&copy; 2018 Go Smart Solar, San Antonio TX</CopyrightText>
 </Container>
 
