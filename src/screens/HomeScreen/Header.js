@@ -64,6 +64,13 @@ const Row = styled.div`
   justify-content: space-between;
   margin: 0;
   margin-top: -75px;
+  @media(max-width: 500px){
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+  }
 `;
 const BoxImage = styled.img`
   max-width: 130px;
