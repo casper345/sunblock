@@ -4,7 +4,7 @@ import Color from '../constants/Color'
 
 export const H1 = styled.h1`
   // margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   color: ${Color.primaryColor};
 `;
@@ -15,7 +15,7 @@ export const H2 = styled.h2`
 `;
 export const H3 = styled.h3`
   margin: 0;
-  font-size: .9rem;
+  font-size: .7rem;
   font-weight: 200;
 `;
 export const H4 = styled.h4`

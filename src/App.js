@@ -5,14 +5,15 @@ import { BrowserRouter, Route } from 'react-router-dom'
 // TODO: shouldnt need index
 import HomeScreen from './screens/HomeScreen/index'
 import DesignScreen from './screens/DesignScreen'
-import ContactScreen from './screens/ContactScreen'
 
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
 
-const Container = styled.div``;
+const Container = styled.div`
+`;
 
 const Main = styled.div`
+  width: 100%;
   min-height: calc(100vh - 70px);
 `;
 
@@ -25,7 +26,6 @@ class App extends Component {
           <Main>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/design-your-solar" component={DesignScreen} />
-            <Route exact path="/contact-us" component={ContactScreen} />
           </Main>
           <Footer />
         </Container>

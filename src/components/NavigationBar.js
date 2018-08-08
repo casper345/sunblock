@@ -48,10 +48,10 @@ const NavigationBar = () =>
     />
     <List>
       <ListItem><StyledLink to ="/">Home</StyledLink></ListItem>
-      <ListItem><StyledLink to ="/">How it Works</StyledLink></ListItem>
+      <ListItem><StyledLink to ="/how-it-works">How it Works</StyledLink></ListItem>
       <ListItem><StyledLink to="/design-your-solar">Design Yours</StyledLink></ListItem>
-      <ListItem><StyledLink to="/contact-us">Blog</StyledLink></ListItem>
-      <ListItem><StyledLink to="/contact-us">FAQ</StyledLink></ListItem>
+      <ListItem><StyledLink to="/blog">Blog</StyledLink></ListItem>
+      <ListItem><StyledLink to="/faq">FAQ</StyledLink></ListItem>
     </List>
   </Container>
 

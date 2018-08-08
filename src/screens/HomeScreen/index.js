@@ -7,6 +7,23 @@ import Process from './Process'
 import { H2 } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+`;
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 // TODO: spacing between city images and steps, general sapcing relation
 class HomeScreen extends Component {
   render(){
@@ -26,22 +43,5 @@ class HomeScreen extends Component {
     );
   }
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 3%;
-`;
-const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 export default HomeScreen;

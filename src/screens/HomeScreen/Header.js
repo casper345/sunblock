@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 import defaultImage from '../../assets/images/pokecenter.png'
 
-import { H1, H3, H4 } from '../../components/StyledHeading'
-import Row from '../../components/Row'
-import Column from '../../components/Column'
+import Color from '../../constants/Color'
+
+import { H1, H3, P } from '../../components/StyledHeading'
 
 const Header = () =>
   <Container>
@@ -16,40 +16,57 @@ const Header = () =>
     <Row>
       <Column>
         <BoxImage src={defaultImage} />
-        <H4>Work for any home with any food</H4>
+        <P>Work for any home with any food</P>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <H4>Work for any home with any food</H4>
+        <P>Work for any home with any food</P>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <H4>Work for any home with any food</H4>
+        <P>Work for any home with any food</P>
       </Column>
       <Column>
         <BoxImage src={defaultImage} />
-        <H4>Work for any home with any food</H4>
+        <P>Work for any home with any food</P>
       </Column>
     </Row>
   </Container>
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 5%;
-  background-image: url('../../assets/images/background.jpg');
 `;
 const Section = styled.div`
+  width: 90%;
+  height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  padding-top: 2%;
+  background-color: ${Color.lightGrey};
+`;
+const Column = styled.div`
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+`;
+const Row = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: -75px;
 `;
 const BoxImage = styled.img`
-  max-width: 100px;
+  max-width: 130px;
 `;
 
 export default Header;
