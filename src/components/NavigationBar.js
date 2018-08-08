@@ -11,6 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: ${Color.lightGrey};
   @media (max-width:700px){
     flex-direction: column;
@@ -49,7 +50,7 @@ const NavigationBar = () =>
     />
     <List>
       <ListItem><StyledLink to ="/">Home</StyledLink></ListItem>
-      <ListItem><StyledLink to="/">Design Your Solar</StyledLink></ListItem>
+      <ListItem><StyledLink to="/design-your-solar">Design Your Solar</StyledLink></ListItem>
       <ListItem><StyledLink to="/contact-us">Contact Us</StyledLink></ListItem>
     </List>
   </Container>

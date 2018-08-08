@@ -1,4 +1,6 @@
 export default {
+  primaryColor: 'rgb(140,178,71)',
+  secondaryColor: 'rgb(140,178,71)',
   lightGreen: 'rgb(140,178,71)',
   darkGreen: 'rgb(75,97,44)',
   lightPurple: 'rgb(122,49,146)',
