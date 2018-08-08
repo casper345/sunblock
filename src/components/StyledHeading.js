@@ -16,7 +16,7 @@ export const H3 = styled.h3`
 
 `;
 export const H4 = styled.h4`
-  font-size: 3rem;
+  font-size: .8rem;
 
 `;
 export const P = styled.p`

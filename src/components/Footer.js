@@ -3,15 +3,45 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-const Footer = () =>
-  <Container>
-
-  </Container>
+import { H4 } from '../components/StyledHeading'
 
 const Container = styled.div`
-  display: flex;
   width: 100%;
-  background-color: ${Color.secondaryColor};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${Color.lightBrown};
 `;
+const Icon = styled.img`
+  width: 25px;
+  height: 25px;
+  margin: 15px;
+  margin-bottom: 0px;
+`;
+const CopyrightText = styled.p`
+  font-size: .5rem;
+  color: rgb(113,113,106);
+`;
+
+const SocialMedia = () =>
+<div>
+  <a href="https://www.facebook.com/">
+    <Icon src={require('../assets/images/telegram.png')} alt="Facebook Link"/>
+  </a>
+  <a href="https://www.instagram.com/">
+    <Icon src={require('../assets/images/instagram.png')} alt="Instagram Link"/>
+  </a>
+  <a href="https://www.linkedin.com/">
+    <Icon src={require('../assets/images/linkedin.png')} alt="LinkedIn Link"/>
+  </a>
+</div>
+
+const Footer = () =>
+<Container>
+  <SocialMedia />
+  <H4>info@gosmartsolar.com</H4>
+  <CopyrightText>&copy; 2018 Go Smart Solar, San Antonio TX</CopyrightText>
+</Container>
 
 export default Footer;
