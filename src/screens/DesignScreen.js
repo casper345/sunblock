@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import DesignForm from '../containers/DesignForm'
 import SolarPanelCalc from '../containers/SolarPanelCalc'
 
 import { H2 } from '../components/StyledHeading'
@@ -18,7 +19,7 @@ class DesignScreen extends Component {
     return(
       <Container>
         <H2>DESIGN YOUR SOLAR BLOCK</H2>
-        <SolarPanelCalc />
+        <DesignForm />
       </Container>
     );
   }
