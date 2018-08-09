@@ -52,6 +52,7 @@ const NavigationBar = () =>
       <ListItem><StyledLink to="/design-your-solar">Design Yours</StyledLink></ListItem>
       <ListItem><StyledLink to="/blog">Blog</StyledLink></ListItem>
       <ListItem><StyledLink to="/faq">FAQ</StyledLink></ListItem>
+      <ListItem><StyledLink to="/admin">Admin</StyledLink></ListItem>
     </List>
   </Container>
 

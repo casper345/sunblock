@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${Color.primaryColor};
+  background-color: ${Color.lightBrown};
 `;
 const Icon = styled.img`
   width: 25px;
@@ -20,7 +20,6 @@ const Icon = styled.img`
 const EmailText = styled.p`
   font-size: .8rem;
   letter-spacing: 3px;
-  color: white;
 `;
 const CopyrightText = styled.p`
   font-size: .5rem;

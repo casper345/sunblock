@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import DesignForm from '../containers/DesignForm'
-import SolarPanelCalc from '../containers/SolarPanelCalc'
+import DesignForm from '../containers/DesignForm/index'
 
 import { H2 } from '../components/StyledHeading'
 
@@ -25,4 +24,4 @@ class DesignScreen extends Component {
   }
 }
 
-export default DesignScreen;
+export default DesignScreen
