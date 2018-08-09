@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 // TODO: shouldnt need index
 import HomeScreen from './screens/HomeScreen/index'
 import DesignScreen from './screens/DesignScreen'
+import FaqScreen from './screens/FaqScreen'
 import Admin from './screens/Admin'
 
 import NavigationBar from './components/NavigationBar'
@@ -27,6 +28,7 @@ class App extends Component {
           <Main>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/design-your-solar" component={DesignScreen} />
+            <Route exact path="/faq" component={FaqScreen} />
             <Route exact path="/admin" component={Admin} />
           </Main>
           <Footer />
