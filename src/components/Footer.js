@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-import { H4 } from '../components/StyledHeading'
-
 const Container = styled.div`
   width: 100%;
   display: flex;

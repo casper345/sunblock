@@ -50,6 +50,9 @@ const Section = styled.div`
   align-items: center;
   padding-top: 2%;
   background-color: ${Color.lightGrey};
+  @media(max-width: 500px){
+    padding-top: 10%;
+  }
 `;
 const Column = styled.div`
   width: 20%;
@@ -59,6 +62,10 @@ const Column = styled.div`
   flex-direction: column;
   text-align: center;
   margin: 0;
+  @media(max-width: 500px){
+    width: 80%;
+    max-width: 300px;
+  }
 `;
 const Row = styled.div`
   width: 80%;
@@ -77,6 +84,9 @@ const Row = styled.div`
 `;
 const BoxImage = styled.img`
   max-width: 130px;
+  @media(max-width: 500px){
+    max-width: 300px;
+  }
 `;
 
 export default Header;
