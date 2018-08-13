@@ -1,146 +1,62 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+
+import SolarPanelImage from '../assets/images/solar.png'
+
+import { P } from '../components/StyledHeading'
+import Button from '../components/Button'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  .solarImage{
+    max-width: 50px;
+    max-height: 50px;
+  }
 `;
-const AdminContainer = styled.div`
+const Column = styled.div`
   display: flex;
   flex-direction: column;
-   align-items: center;
 `;
-const CustomerContainer = styled.div`
+const Row = styled.div`
   display: flex;
-  flex-direction: column;
-   align-items: center;
+  flex-direction: row;
+  margin-top: 5%;
+`;
+const Number = styled.h2`
+  margin: 0;
 `;
 
-class SolarPanelCalc extends Component {
-  constructor(){
-    super();
-    this.state = {
-      AvgMonthlyBill: 200,
-      MaxProductionAllowed: 120,
-      CreditRate: .09,
-      PerPanelProduction: 46.63,
-      MaxPanels: 0,
-      isMonthly: false,
-      isAverage: true,
-    }
-    this._handleAverage = this._handleAverage.bind(this);
-    this._handleMonthly = this._handleMonthly.bind(this);
-    this._handleChange = this._handleChange.bind(this);
-    this._handleSubmit = this._handleSubmit.bind(this);
-  }
+const SolarPanelCalc = props => {
+  const { AvgMonthlyBill  } = this.props
+  return(
+    <Container>
+      <Row>
+        <img className="solarImage" src={SolarPanelImage}/>
+        <img className="solarImage" src={SolarPanelImage}/>
+        <img className="solarImage" src={SolarPanelImage}/>
+        <Column>
+          <P>For your energy usage, we recommend</P>
+          <Number>39</Number>
+          <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
+        </Column>
+      </Row>
 
-  _handleAverage(){
-    this.setState({
-      isMonthly: false,
-      isAverage: true,
-    });
-  }
-
-  _handleMonthly(){
-    this.setState({
-      isMonthly: true,
-      isAverage: false,
-    });
-  }
-
-  _handleChange(event){
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    console.log(name);
-    console.log(value);
-    this.setState({[name]: Number(value)});
-  }
-
-  _handleSubmit(){
-    let calc = (this.state.AvgMonthlyBill * (this.state.MaxProductionAllowed/100))/(this.state.CreditRate * this.state.PerPanelProduction);
-    this.setState({
-      MaxProductionAllowed: this.state.MaxProductionAllowed,
-      MaxPanels: calc,});
-    console.log(calc);
-  }
-
-  render(){
-    return(
-      <form>
-        <Container>
-        <AdminContainer>
-          <h1>Admin</h1>
-          <p>Input Go Smart Solar will be changing on the backend</p>
-          <label>
-            Production of 1 panel (kwh/month):
-            <input
-              name="PerPanelProduction"
-              type="number"
-              onChange={this._handleChange}
-              defaultValue={this.state.PerPanelProduction}
-            />
-          </label>
-          <label>
-            Sunbloc Credt ($/kwh):
-            <input
-              name="CreditRate"
-              type="number"
-              onChange={this._handleChange}
-              defaultValue={this.state.CreditRate}
-            />
-          </label>
-          <label>
-            Max Production Allowed (percentage):
-            <input
-              name="MaxProductionAllowed"
-              type="number"
-              onChange={this._handleChange}
-              defaultValue={this.state.MaxProductionAllowed}
-            />
-          </label>
-        </AdminContainer>
-
-        <CustomerContainer>
-          <h1>Customer</h1>
-          <p>Input that the customer will be inputting and changing</p>
-
-          {/* <button type="button"
-            onClick={this._handleMonthly}
-            >Calculate Monthly</button>
-          <button type="button"
-            onClick={this._handleAverage}
-            >Calculate Average</button> */}
-          <label>
-            Average Monthly Bill ($):
-            { this.state.isAverage &&
-              <input
-                name="AvgMonthlyBill"
-                type="number"
-                onChange={this._handleChange}
-                defaultValue={this.state.AvgMonthlyBill}
-              />
-            }
-            {/* { this.state.isMonthly &&
-              <input
-                name="AvgMonthlyBill"
-                type="number"
-                onChange={this._handleChange}
-                defaultValue={this.state.AvgMonthlyBill}
-              />
-            } */}
-          </label>
-        </CustomerContainer>
-
-        <button type="button"
-          onClick={this._handleSubmit}>Calc</button>
-
-        <h4>{this.state.MaxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed}% save</h4>
-        </Container>
-      </form>
-    )
-  }
+      <Row>
+        <Column>
+          <P>A Sunblock system size of 39 panels will</P>
+          <P>Pay for itself every month (cover monthly payment + loan fees) Learn More</P>
+          <P>Offset 100% of your CPS power bill Learn More</P>
+          <P>Even earn you a $15 monthly credit Learn More</P>
+        </Column>
+        <Column>
+          <P>Did you know? Your Sunblock will generate</P>
+          <Number>8.5kw</Number>
+        </Column>
+      </Row>
+      <Button>Order your panels now</Button>
+    </Container>
+  )
 
 }
 

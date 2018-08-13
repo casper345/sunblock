@@ -25,5 +25,6 @@ export const H4 = styled.h4`
 export const P = styled.p`
   margin: 0;
   font-size: .7rem;
+  line-height: 1rem;
   color: grey;
 `;

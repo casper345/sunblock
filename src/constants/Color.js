@@ -1,5 +1,5 @@
 export default {
-  primaryColor: 'rgb(21,184,245)',
+  primaryColor: '#15b8f5',
   secondaryColor: 'rgb(140,178,71)',
   lightGreen: 'rgb(140,178,71)',
   darkGreen: 'rgb(75,97,44)',

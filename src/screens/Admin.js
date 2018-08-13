@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import SolarPanelCalc from '../containers/SolarPanelCalc'
+import SolarPanelCalc from '../containers/SolarPanelCalcAdmin'
 
 const Container = styled.div`
   display: flex;
