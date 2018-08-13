@@ -17,6 +17,10 @@ const Container = styled.div`
 const Main = styled.div`
   width: 100%;
   min-height: calc(100vh - 70px);
+  padding-top: 80px;
+  @media (max-width:700px){
+    padding-top: 140px;
+  }
 `;
 
 class App extends Component {

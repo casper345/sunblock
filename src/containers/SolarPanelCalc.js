@@ -31,7 +31,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
   const MaxProductionAllowed = 120;
   const CreditRate = .09;
   const PerPanelProduction = 46.63;
-  const MaxPanels = Math.ceil((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
+  const MaxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
   return(
     <Container>
       <Row>

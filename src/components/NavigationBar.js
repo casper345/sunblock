@@ -5,10 +5,13 @@ import styled from 'styled-components';
 import LogoIcon from '../assets/images/logo.png';
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: white;
+  box-shadow: 0 8px 6px -6px #999;
   @media (max-width:700px){
     flex-direction: column;
     justify-content: center;

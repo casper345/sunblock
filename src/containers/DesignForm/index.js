@@ -145,7 +145,7 @@ class DesignForm extends Component {
     return(
       <Container>
         <Section>
-         <H2>1. Will Sunblock work for you?</H2>
+         <H2>Will Sunblock work for you?</H2>
          <P>The only requirement is that you are an active CPS Customer (ths San Antonio power utility). It doesn't matter if you rent or own a home, apartment, or commercial property.</P>
          <Button id={'IS_CUSTOMER'}
            onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
@@ -155,7 +155,7 @@ class DesignForm extends Component {
          </Section>
 
          <Section>
-           <H2>2. Let's find out how much solar energy you need</H2>
+           <H2>Let's find out how much solar energy you need</H2>
            <ButtonContainer>
              <Column>
                <P>YES, I can access the CPS portal</P>
@@ -190,7 +190,7 @@ class DesignForm extends Component {
            {
              thirdSectionEnabled &&
              <div>
-               <H2>3. Customize Your Sunblock</H2>
+               <H2>Customize Your Sunblock</H2>
                <SolarPanelCalc AvgMonthlyBill={AvgMonthlyBill}/>
              </div>
            }
