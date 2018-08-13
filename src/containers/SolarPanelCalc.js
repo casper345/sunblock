@@ -27,24 +27,25 @@ const Number = styled.h2`
   margin: 0;
 `;
 
-const SolarPanelCalc = props => {
-  const { AvgMonthlyBill  } = this.props
+const SolarPanelCalc = ({ AvgMonthlyBill }) => {
+  const MaxProductionAllowed = 120;
+  const CreditRate = .09;
+  const PerPanelProduction = 46.63;
+  const MaxPanels = Math.ceil((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
   return(
     <Container>
       <Row>
-        <img className="solarImage" src={SolarPanelImage}/>
-        <img className="solarImage" src={SolarPanelImage}/>
-        <img className="solarImage" src={SolarPanelImage}/>
+        <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>
         <Column>
-          <P>For your energy usage, we recommend</P>
-          <Number>39</Number>
+          <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
+          <Number>{MaxPanels}</Number>
           <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
         </Column>
       </Row>
 
       <Row>
         <Column>
-          <P>A Sunblock system size of 39 panels will</P>
+          <P>A Sunblock system size of {MaxPanels} panels will</P>
           <P>Pay for itself every month (cover monthly payment + loan fees) Learn More</P>
           <P>Offset 100% of your CPS power bill Learn More</P>
           <P>Even earn you a $15 monthly credit Learn More</P>

@@ -7,7 +7,6 @@ import SolarPanelCalc from '../../containers/SolarPanelCalc'
 
 import { H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
-import Modal from '../../components/Modal'
 
 const Container = styled.div`
   width: 80%;
@@ -37,6 +36,44 @@ const Column = styled.div`
   flex-direction: column;
   text-align: center;
 `;
+const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  section{
+    position:fixed;
+    width: 50%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    background: white;
+  }
+`
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Modal = ({ handleClose, modalVisible, children}) => {
+  return(
+    modalVisible &&
+    <ModalContainer>
+      <section>
+        <Content>
+          {children}
+          <Button onClick={handleClose}>submit</Button>
+          <Button onClick={handleClose}>close</Button>
+        </Content>
+      </section>
+    </ModalContainer>
+  )
+}
 
 function CPSCustomerWarning(props){
   if(!props.warn){
@@ -53,7 +90,6 @@ class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      secondSectionEnabled: false,
       thirdSectionEnabled: false,
       BuildingType: '',
       isCpsCustomer: null,
@@ -64,6 +100,7 @@ class DesignForm extends Component {
     this._handleIsCPSCustomer = this._handleIsCPSCustomer.bind(this);
     this._handleHasCPSAccess = this._handleHasCPSAccess.bind(this);
     this._handleModalClose = this._handleModalClose.bind(this);
+    this._handleChange = this._handleChange.bind(this);
   }
 
   _handleIsCPSCustomer(event){
@@ -74,7 +111,6 @@ class DesignForm extends Component {
     }
     this.setState({
       isCpsCustomer: requirementFulfilled,
-      secondSectionEnabled: true,
     })
   }
 
@@ -89,10 +125,19 @@ class DesignForm extends Component {
   _handleModalClose(){
     this.setState({
       modalVisible: false,
+      thirdSectionEnabled: true,
     })
   }
 
+  _handleChange(event){
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({[name]: Number(value)});
+  }
+
   render(){
+    const AvgMonthlyBill = this.state.AvgMonthlyBill;
     const isCpsCustomer = this.state.isCpsCustomer;
     const hasCPSAccess = this.state.hasCPSAccess;
     const thirdSectionEnabled = this.state.thirdSectionEnabled;
@@ -131,10 +176,10 @@ class DesignForm extends Component {
                     return <Modal
                     modalVisible={this.state.modalVisible}
                     handleClose={this._handleModalClose}
-                    ><p>HAS_ACCESS</p></Modal>;
+                    ><h3>Upload Your CPS file here</h3></Modal>;
                   case 'NO_ACCESS':
                     return <Modal modalVisible={this.state.modalVisible}
-                    handleClose={this._handleModalClose}><p>NO_ACCESS</p></Modal>;
+                    handleClose={this._handleModalClose}><h3>What was your estimated energy bill last month?</h3><input name="AvgMonthlyBill" type="number" onChange={this._handleChange} defaultValue={this.state.AvgMonthlyBill}/></Modal>;
                   default:
                     return null;
                 }
@@ -146,7 +191,7 @@ class DesignForm extends Component {
              thirdSectionEnabled &&
              <div>
                <H2>3. Customize Your Sunblock</H2>
-               <SolarPanelCalc />
+               <SolarPanelCalc AvgMonthlyBill={AvgMonthlyBill}/>
              </div>
            }
          </Section>
