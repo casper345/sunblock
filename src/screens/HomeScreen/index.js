@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import Color from '../../constants/Color'
+
 import Header from './Header'
 import Process from './Process'
 
@@ -32,7 +34,7 @@ class HomeScreen extends Component {
         <Header />
         <ButtonContainer>
           <Button>See How It Works</Button>
-          <Button>Design Solar For You</Button>
+          <Button color={Color.secondaryColor}>Design Solar For You</Button>
         </ButtonContainer>
         <Section>
           <H2>Half of US homes don't work for traditional solar.*</H2>

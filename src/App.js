@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 // TODO: shouldnt need index
 import HomeScreen from './screens/HomeScreen/index'
+import SunblockScreen from './screens/SunblockScreen'
 import DesignScreen from './screens/DesignScreen'
 import FaqScreen from './screens/FaqScreen'
 import Admin from './screens/Admin'
@@ -31,6 +32,7 @@ class App extends Component {
           <NavigationBar />
           <Main>
             <Route exact path="/" component={HomeScreen} />
+            <Route exact path="/how-gosmartsolar-sunblock-works" component={SunblockScreen} />
             <Route exact path="/design-your-solar" component={DesignScreen} />
             <Route exact path="/faq" component={FaqScreen} />
             <Route exact path="/admin" component={Admin} />

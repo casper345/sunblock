@@ -9,11 +9,6 @@ import { H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
 const Container = styled.div`
-  width: 80%;
-  margin-top: 5%;
-  @media(max-width: 600px) {
-    width: 90%;
-  }
 `;
 const Section = styled.div`
   margin-bottom: 8%;
@@ -90,7 +85,7 @@ class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      thirdSectionEnabled: false,
+      thirdSectionEnabled: true,
       BuildingType: '',
       isCpsCustomer: null,
       hasCPSAccess: null,
@@ -169,6 +164,7 @@ class DesignForm extends Component {
                  id={'NO_ACCESS'}
                  onClick={this._handleHasCPSAccess}>Provide an estimate</Button>
              </Column>
+             Your Estimate Monthly Average is ${AvgMonthlyBill}
            </ButtonContainer>
            {(() => {
                 switch(hasCPSAccess) {
@@ -191,7 +187,10 @@ class DesignForm extends Component {
              thirdSectionEnabled &&
              <div>
                <H2>Customize Your Sunblock</H2>
-               <SolarPanelCalc AvgMonthlyBill={AvgMonthlyBill}/>
+               <SolarPanelCalc
+                 AvgMonthlyBill={AvgMonthlyBill}
+                 isCpsCustomer={isCpsCustomer}
+               />
              </div>
            }
          </Section>

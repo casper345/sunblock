@@ -5,7 +5,6 @@ import Color from '../constants/Color'
 
 import DesignForm from '../containers/DesignForm/index'
 
-import { H2 } from '../components/StyledHeading'
 import Card from '../components/Card'
 
 const Container = styled.div`
@@ -14,7 +13,9 @@ const Container = styled.div`
   padding-top: 5%;
   flex-direction: column;
   align-items: center;
-  background-color: ${Color.grey};
+  background: #F2994A;
+  background: -webkit-linear-gradient(to bottom, #F2C94C, #F2994A);
+  background: linear-gradient(to bottom, #F2C94C, #F2994A);
 `;
 
 class DesignScreen extends Component {
@@ -22,8 +23,10 @@ class DesignScreen extends Component {
   render(){
     return(
       <Container>
-        <Card>
-          <H2>DESIGN YOUR SOLAR BLOCK</H2>
+        <Card
+          title={"Design Your Solar"}
+          subtitle={"We want to make sure you are given the best option for this. If we find out that solar will not be a good invesement on your end, we will notify you."}
+          >
           <DesignForm />
         </Card>
       </Container>

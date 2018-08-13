@@ -6,15 +6,20 @@ const Button = styled.button`
   margin: .5rem;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 1px solid ${Color.primaryColor};
-  background-color: ${Color.primaryColor};
+  border: 1px solid ${({color}) => color};
+  border-radius: 2px;
+  background-color: ${({color}) => color};
   color: white;
   text-transform: uppercase;
   &:hover{
-    color: ${Color.primaryColor};
-    border: 1px solid ${Color.primaryColor};
+    color: ${({color}) => color};
+    border: 1px solid ${({color}) => color};
     background-color: white;
   }
 `;
+
+Button.defaultProps = {
+  color: Color.primaryColor,
+}
 
 export default Button;

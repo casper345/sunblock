@@ -12,7 +12,12 @@ const Container = styled.div`
   padding-top: 5%;
   flex-direction: column;
   align-items: center;
-  background-color: ${Color.grey};
+  background: #F2994A;
+  background: -webkit-linear-gradient(to bottom, #F2C94C, #F2994A);
+  background: linear-gradient(to bottom, #F2C94C, #F2994A);
+  @media(max-width: 500px){
+    background-color: ${Color.grey}
+  }
 `;
 const List = styled.ol`
   width: 70%;
@@ -26,8 +31,9 @@ class FaqScreen extends Component {
   render(){
     return(
       <Container>
-        <Card>
-        <H1>FAQ</H1>
+        <Card
+          title={"FAQ"}
+          >
         <List>
           <ListItem>
             <H4>What do we do when we must do what we need to do?</H4>
