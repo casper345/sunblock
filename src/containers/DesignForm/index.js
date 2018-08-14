@@ -80,14 +80,39 @@ const Modal = ({ handleClose, modalVisible, children}) => {
 }
 
 function CPSCustomerWarning(props){
-  if(props.isCPSCustomer == null || props.isCPSCustomer){
-    return null;
-  }
-  return(
+  const isCustomer = props.isCPSCustomer == null || props.isCPSCustomer
+  return !isCustomer && <div>Sorry you have to be a CPS Customer for Sunblock. But check out Go Smart Solar app</div>
+}
+
+function ModalFunction({ text, state }) {
+  return (
     <div>
-      Sorry you have to be a CPS Customer for Sunblock. But check out Go Smart Solar app
+      {(() => {
+        switch(state) {
+          case 'info':
+            return <div>{text}</div>;
+          case 'warning':
+            return <div>{text}</div>;
+          case 'error':
+            return <div>{text}</div>;
+          default:
+            return null;
+        }
+      })()}
     </div>
-  )
+  );
+}
+
+function ENUMINLINEOBJECT({ text, state }) {
+  return (
+    <div>
+      {{
+        info: <div>{text}</div>,
+        warning: <div>{text}</div>,
+        error: <div>{text}</div>,
+      }[state]}
+    </div>
+  );
 }
 
 class DesignForm extends Component {
