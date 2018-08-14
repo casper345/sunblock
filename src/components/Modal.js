@@ -5,6 +5,7 @@ import Button from './Button'
 
 const Container = styled.div`
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   width:100%;
@@ -12,6 +13,7 @@ const Container = styled.div`
   background: rgba(0, 0, 0, 0.6);
   section{
     position:fixed;
+    z-index: 999999999;
     width: 50%;
     height: auto;
     top:50%;

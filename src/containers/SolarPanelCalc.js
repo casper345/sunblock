@@ -7,6 +7,7 @@ import Color from '../constants/Color'
 
 import { P } from '../components/StyledHeading'
 import Button from '../components/Button'
+import Slider from '../components/Slider'
 
 const Container = styled.div`
   display: flex;
@@ -58,6 +59,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
           <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
           <Number>{MaxPanels}</Number>
           <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
+          <Slider value={MaxPanels}/>
         </Column>
       </Row>
 
