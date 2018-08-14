@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-import DesignForm from '../containers/DesignForm/index'
+import DesignForm from '../components/DesignForm/index'
 
 import Card from '../components/Card'
 
-const Container = styled.div`
+const Zone = styled.div`
   height: 100vh;
   display: flex;
   padding-top: 5%;
@@ -22,14 +22,14 @@ class DesignScreen extends Component {
 
   render(){
     return(
-      <Container>
+      <Zone>
         <Card
           title={"Design Your Solar"}
           subtitle={"We want to make sure you are given the best option for this. If we find out that solar will not be a good invesement on your end, we will notify you."}
           >
           <DesignForm />
         </Card>
-      </Container>
+      </Zone>
     );
   }
 }

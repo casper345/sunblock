@@ -3,10 +3,10 @@ import styled from 'styled-components'
 
 import { P } from './StyledHeading'
 
-const Container = styled.div``;
+const Zone = styled.div``;
 
 const SelectField = ({selections, images, title}) =>
-<Container>
+<Zone>
   <P>{title}</P>
   <label>
     <input type="radio" value="option3" />
@@ -16,6 +16,6 @@ const SelectField = ({selections, images, title}) =>
     <input type="radio" value="option3" />
     Option 1
   </label>
-</Container>
+</Zone>
 
 export default SelectField

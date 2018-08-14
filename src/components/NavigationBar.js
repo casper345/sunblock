@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import LogoIcon from '../assets/images/logo.png';
 
-const Container = styled.div`
+const Zone = styled.div`
   width: 100vw;
   position: fixed;
   display: flex;
@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
 `;
 
 const NavigationBar = () =>
-  <Container>
+  <Zone>
     <Logo
       src={LogoIcon}
     />
@@ -57,6 +57,6 @@ const NavigationBar = () =>
       <ListItem><StyledLink to="/faq">FAQ</StyledLink></ListItem>
       <ListItem><StyledLink to="/admin">Admin</StyledLink></ListItem>
     </List>
-  </Container>
+  </Zone>
 
 export default NavigationBar;

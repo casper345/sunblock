@@ -12,7 +12,7 @@ import Admin from './screens/Admin'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
 
-const Container = styled.div`
+const Zone = styled.div`
 `;
 
 const Main = styled.div`
@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Container>
+        <Zone>
           <NavigationBar />
           <Main>
             <Route exact path="/" component={HomeScreen} />
@@ -38,7 +38,7 @@ class App extends Component {
             <Route exact path="/admin" component={Admin} />
           </Main>
           <Footer />
-        </Container>
+        </Zone>
       </BrowserRouter>
     );
   }

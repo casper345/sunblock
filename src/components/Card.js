@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-const Container = styled.div`
+const Zone = styled.div`
   width: 80%;
   max-width: 900px;
   display: flex;
@@ -20,7 +20,7 @@ const Container = styled.div`
     text-align: center;
     color: white;
     background-color: ${Color.primaryColor};
-    .titleContainer {
+    .titleZone {
       width: 70%;
     }
     h1 {
@@ -58,9 +58,9 @@ const Content = styled.div`
 `
 
 const Card = ({ title, subtitle, children }) =>
-<Container>
+<Zone>
   <div className={"header"}>
-    <div className={"titleContainer"}>
+    <div className={"titleZone"}>
       <h1>{title}</h1>
       <p>{subtitle}</p>
     </div>
@@ -68,6 +68,6 @@ const Card = ({ title, subtitle, children }) =>
   <Content>
     {children}
   </Content>
-</Container>
+</Zone>
 
 export default Card

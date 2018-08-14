@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-const Container = styled.div`
+const Zone = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,10 +40,10 @@ const SocialMedia = () =>
 </div>
 
 const Footer = () =>
-<Container>
+<Zone>
   <SocialMedia />
   <EmailText>info@gosmartsolar.com</EmailText>
   <CopyrightText>&copy; 2018 Go Smart Solar, San Antonio TX</CopyrightText>
-</Container>
+</Zone>
 
 export default Footer;

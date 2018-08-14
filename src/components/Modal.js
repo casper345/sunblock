@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Button from './Button'
 
-const Container = styled.div`
+const Zone = styled.div`
   position: fixed;
   z-index: 999;
   top: 0;
@@ -32,14 +32,14 @@ const Content = styled.div`
 const Modal = ({ handleClose, modalVisible, children}) => {
   return(
     modalVisible &&
-    <Container>
+    <Zone>
       <section>
         <Content>
           {children}
           <Button onClick={handleClose}>close</Button>
         </Content>
       </section>
-    </Container>
+    </Zone>
   )
 }
 

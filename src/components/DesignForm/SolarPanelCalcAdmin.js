@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const AdminContainer = styled.div`
+const AdminZone = styled.div`
   display: flex;
   flex-direction: column;
    align-items: center;
 `;
-const CustomerContainer = styled.div`
+const CustomerZone = styled.div`
   display: flex;
   flex-direction: column;
    align-items: center;
@@ -69,8 +69,8 @@ class SolarPanelCalc extends Component {
   render(){
     return(
       <form>
-        <Container>
-        <AdminContainer>
+        <Zone>
+        <AdminZone>
           <h1>Admin</h1>
           <p>Input Go Smart Solar will be changing on the backend</p>
           <label>
@@ -100,9 +100,9 @@ class SolarPanelCalc extends Component {
               defaultValue={this.state.MaxProductionAllowed}
             />
           </label>
-        </AdminContainer>
+        </AdminZone>
 
-        <CustomerContainer>
+        <CustomerZone>
           <h1>Customer</h1>
           <p>Input that the customer will be inputting and changing</p>
 
@@ -131,13 +131,13 @@ class SolarPanelCalc extends Component {
               />
             } */}
           </label>
-        </CustomerContainer>
+        </CustomerZone>
 
         <button type="button"
           onClick={this._handleSubmit}>Calc</button>
 
         <h4>{this.state.MaxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed}% save</h4>
-        </Container>
+        </Zone>
       </form>
     )
   }

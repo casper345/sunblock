@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import SolarPanelCalc from '../containers/SolarPanelCalcAdmin'
+import SolarPanelCalc from '../components/DesignForm/SolarPanelCalcAdmin'
 
-const Container = styled.div`
+const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,9 +14,9 @@ class DesignScreen extends Component {
 
   render(){
     return(
-      <Container>
+      <Zone>
         <SolarPanelCalc />
-      </Container>
+      </Zone>
     );
   }
 }

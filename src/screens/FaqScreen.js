@@ -6,7 +6,7 @@ import Color from '../constants/Color'
 import { H1, H4, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 
-const Container = styled.div`
+const Zone = styled.div`
   height: 100vh;
   display: flex;
   padding-top: 5%;
@@ -30,7 +30,7 @@ const ListItem = styled.li`
 class FaqScreen extends Component {
   render(){
     return(
-      <Container>
+      <Zone>
         <Card
           title={"FAQ"}
           >
@@ -57,7 +57,7 @@ class FaqScreen extends Component {
           </ListItem>
         </List>
         </Card>
-      </Container>
+      </Zone>
     );
   }
 }

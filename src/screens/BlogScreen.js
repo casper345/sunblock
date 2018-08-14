@@ -6,14 +6,14 @@ import { H1 } from '../components/StyledHeading'
 class ContactScreen extends Component {
   render(){
     return(
-      <Container>
+      <Zone>
         <H1>Contact Us</H1>
-      </Container>
+      </Zone>
     );
   }
 }
 
-const Container = styled.div`
+const Zone = styled.div`
   display: flex;
   justify-content: center;
 `;

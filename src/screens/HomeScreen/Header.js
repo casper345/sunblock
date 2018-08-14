@@ -8,7 +8,7 @@ import Color from '../../constants/Color'
 import { H1, H3, P } from '../../components/StyledHeading'
 
 const Header = () =>
-  <Container>
+  <Zone>
     <Section>
       <H1>Solar for every home. On every block.</H1>
       <H3>NOTHING GOES ON YOUR ROOF. ENERGY WITHOUT THE WORRY</H3>
@@ -31,9 +31,9 @@ const Header = () =>
         <P>HOA & Historic Neighborhoods</P>
       </Column>
     </Row>
-  </Container>
+  </Zone>
 
-const Container = styled.div`
+const Zone = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;

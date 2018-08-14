@@ -3,16 +3,16 @@ import styled from 'styled-components'
 
 import Color from '../../constants/Color'
 
-import SolarPanelCalc from '../../containers/SolarPanelCalc'
+import SolarPanelCalc from './SolarPanelCalc'
 
 import { H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
-const Container = styled.div`
+const Zone = styled.div`
 `;
 const Section = styled.div`
   margin-bottom: 4%;
-  .validCpsCustomerButtonContainer {
+  .validCpsCustomerButtonZone {
     margin: 1rem;
     display: flex;
     justify-content: space-around;
@@ -22,7 +22,7 @@ const Section = styled.div`
     }
   }
 `;
-const ButtonContainer = styled.div`
+const ButtonZone = styled.div`
   max-width: 700px;
   display: flex;
   flex-direction: row;
@@ -40,7 +40,7 @@ const Column = styled.div`
   flex-direction: column;
   text-align: center;
 `;
-const ModalContainer = styled.div`
+const ModalZone = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -67,7 +67,7 @@ const Content = styled.div`
 const Modal = ({ handleClose, modalVisible, children}) => {
   return(
     modalVisible &&
-    <ModalContainer>
+    <ModalZone>
       <section>
         <Content>
           {children}
@@ -75,7 +75,7 @@ const Modal = ({ handleClose, modalVisible, children}) => {
           <Button onClick={handleClose}>close</Button>
         </Content>
       </section>
-    </ModalContainer>
+    </ModalZone>
   )
 }
 
@@ -172,11 +172,11 @@ class DesignForm extends Component {
     const thirdSectionEnabled = this.state.thirdSectionEnabled;
 
     return(
-      <Container>
+      <Zone>
         <Section>
          <H2>Will Sunblock work for you?</H2>
          <P>The only requirement is that you are an active CPS Customer (ths San Antonio power utility). It doesn't matter if you rent or own a home, apartment, or commercial property.</P>
-         <div className="validCpsCustomerButtonContainer">
+         <div className="validCpsCustomerButtonZone">
            <Button id={'IS_CUSTOMER'}
              onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
            <Button
@@ -188,7 +188,7 @@ class DesignForm extends Component {
 
          <Section>
            <H2>Let's find out how much solar energy you need</H2>
-           <ButtonContainer>
+           <ButtonZone>
              <Column>
                <P>YES, I can access the CPS portal</P>
                <Button
@@ -201,7 +201,7 @@ class DesignForm extends Component {
                  id={'NO_ACCESS'}
                  onClick={this._handleHasCPSAccess}>Provide an estimate</Button>
              </Column>
-           </ButtonContainer>
+           </ButtonZone>
            <div className="monthlyAverage">
              Your Estimate Monthly Average is ${AvgMonthlyBill}
            </div>
@@ -232,7 +232,7 @@ class DesignForm extends Component {
              </div> }
          </Section>
 
-      </Container>
+      </Zone>
     )
   }
 }

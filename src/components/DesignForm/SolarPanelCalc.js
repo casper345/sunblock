@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import SolarPanelImage from '../assets/images/solar.png'
+import SolarPanelImage from '../../assets/images/solar.png'
 
-import Color from '../constants/Color'
+import Color from '../../constants/Color'
 
-import { P } from '../components/StyledHeading'
-import Button from '../components/Button'
-import Slider from '../components/Slider'
+import { P } from '../../components/StyledHeading'
+import Button from '../../components/Button'
+import Slider from '../../components/Slider'
 
-const Container = styled.div`
+const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
   var MaxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
   var maxPanelArray = Array.apply(null, Array(MaxPanels));
   return(
-    <Container>
+    <Zone>
       <Row>
         {
           maxPanelArray.map((panel) =>
@@ -77,7 +77,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
         </Column>
       </Row>
       <Button className="orderButton">Order your panels now</Button>
-    </Container>
+    </Zone>
   )
 
 }
