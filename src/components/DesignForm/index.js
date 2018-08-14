@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Provider } from 'unstated'
 
 import Color from '../../constants/Color'
 
@@ -42,6 +43,7 @@ const Column = styled.div`
 `;
 const ModalZone = styled.div`
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   width:100%;
@@ -49,6 +51,7 @@ const ModalZone = styled.div`
   background: rgba(0, 0, 0, 0.6);
   section{
     position:fixed;
+    z-index: 9999;
     width: 50%;
     height: auto;
     top:50%;
@@ -82,37 +85,6 @@ const Modal = ({ handleClose, modalVisible, children}) => {
 function CPSCustomerWarning(props){
   const isCustomer = props.isCPSCustomer == null || props.isCPSCustomer
   return !isCustomer && <div>Sorry you have to be a CPS Customer for Sunblock. But check out Go Smart Solar app</div>
-}
-
-function ModalFunction({ text, state }) {
-  return (
-    <div>
-      {(() => {
-        switch(state) {
-          case 'info':
-            return <div>{text}</div>;
-          case 'warning':
-            return <div>{text}</div>;
-          case 'error':
-            return <div>{text}</div>;
-          default:
-            return null;
-        }
-      })()}
-    </div>
-  );
-}
-
-function ENUMINLINEOBJECT({ text, state }) {
-  return (
-    <div>
-      {{
-        info: <div>{text}</div>,
-        warning: <div>{text}</div>,
-        error: <div>{text}</div>,
-      }[state]}
-    </div>
-  );
 }
 
 class DesignForm extends Component {
@@ -225,10 +197,10 @@ class DesignForm extends Component {
            { thirdSectionEnabled &&
              <div>
                <H2>Customize Your Sunblock</H2>
-               <SolarPanelCalc
-                 AvgMonthlyBill={AvgMonthlyBill}
-                 isCpsCustomer={isCpsCustomer}
-               />
+                 <SolarPanelCalc
+                   AvgMonthlyBill={AvgMonthlyBill}
+                   isCpsCustomer={isCpsCustomer}
+                 />
              </div> }
          </Section>
 

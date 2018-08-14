@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'unstated'
 
 // TODO: shouldnt need index
 import HomeScreen from './screens/HomeScreen/index'
@@ -27,19 +28,21 @@ const Main = styled.div`
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Zone>
-          <NavigationBar />
-          <Main>
-            <Route exact path="/" component={HomeScreen} />
-            <Route exact path="/how-gosmartsolar-sunblock-works" component={SunblockScreen} />
-            <Route exact path="/design-your-solar" component={DesignScreen} />
-            <Route exact path="/faq" component={FaqScreen} />
-            <Route exact path="/admin" component={Admin} />
-          </Main>
-          <Footer />
-        </Zone>
-      </BrowserRouter>
+      <Provider>
+        <BrowserRouter>
+          <Zone>
+            <NavigationBar />
+            <Main>
+              <Route exact path="/" component={HomeScreen} />
+              <Route exact path="/how-gosmartsolar-sunblock-works" component={SunblockScreen} />
+              <Route exact path="/design-your-solar" component={DesignScreen} />
+              <Route exact path="/faq" component={FaqScreen} />
+              <Route exact path="/admin" component={Admin} />
+            </Main>
+            <Footer />
+          </Zone>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

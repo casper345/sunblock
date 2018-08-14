@@ -1,0 +1,5 @@
+export default {
+  MAX_PRODUCTION_ALLOWED: 120,
+  CREDIT_RATE: .09,
+  PER_PANEL_PRODUCTION: 46.63,
+};

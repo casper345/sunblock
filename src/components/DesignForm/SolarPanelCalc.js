@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Provider } from 'unstated'
 
 import SolarPanelImage from '../../assets/images/solar.png'
 
 import Color from '../../constants/Color'
+import Formula from '../../constants/Formula'
 
+import EnhancedSlider from '../../components/Slider'
 import { P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
-import Slider from '../../components/Slider'
 
 const Zone = styled.div`
   display: flex;
@@ -43,23 +45,22 @@ const Number = styled.h2`
 `;
 
 const SolarPanelCalc = ({ AvgMonthlyBill }) => {
-  const MaxProductionAllowed = 120;
-  const CreditRate = .09;
-  const PerPanelProduction = 46.63;
+  const MaxProductionAllowed = Formula.MAX_PRODUCTION_ALLOWED;
+  const CreditRate = Formula.CREDIT_RATE;
+  const PerPanelProduction = Formula.PER_PANEL_PRODUCTION;
   var MaxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
   var maxPanelArray = Array.apply(null, Array(MaxPanels));
   return(
     <Zone>
       <Row>
         {
-          maxPanelArray.map((panel) =>
-                <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
+          maxPanelArray.map((panel) => <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
         }
         <Column>
           <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
           <Number>{MaxPanels}</Number>
           <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
-          <Slider value={MaxPanels}/>
+            <EnhancedSlider />
         </Column>
       </Row>
 
