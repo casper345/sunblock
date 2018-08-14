@@ -9,8 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid white;
-  box-shadow: 1px 2px 2px 1px grey;
+  box-shadow: 1px 2px 2px 2px grey;
   background-color: white;
   .header {
     width: 100%;
@@ -19,8 +18,8 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    color: black;
-    background-color: ${Color.grey};
+    color: white;
+    background-color: ${Color.primaryColor};
     .titleContainer {
       width: 70%;
     }

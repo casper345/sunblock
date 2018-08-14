@@ -10,6 +10,7 @@ export const H1 = styled.h1`
 `;
 export const H2 = styled.h2`
   margin: 0;
+  margin-bottom: 2%;
   font-size: 1.2rem;
   font-weight: 200;
 `;

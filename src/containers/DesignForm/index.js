@@ -11,7 +11,16 @@ import Button from '../../components/Button'
 const Container = styled.div`
 `;
 const Section = styled.div`
-  margin-bottom: 8%;
+  margin-bottom: 4%;
+  .validCpsCustomerButtonContainer {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-around;
+    @media(max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 `;
 const ButtonContainer = styled.div`
   max-width: 700px;
@@ -21,7 +30,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   padding-top: 2%;
   padding-bottom: 2%;
-  background-color: ${Color.lightGrey};
+  background-color: ${Color.grey};
   @media(max-width: 600px) {
     flex-direction: column;
   }
@@ -71,7 +80,7 @@ const Modal = ({ handleClose, modalVisible, children}) => {
 }
 
 function CPSCustomerWarning(props){
-  if(!props.warn){
+  if(props.isCPSCustomer == null || props.isCPSCustomer){
     return null;
   }
   return(
@@ -102,7 +111,7 @@ class DesignForm extends Component {
     let buttonId = event.target.id
     let requirementFulfilled = (buttonId == 'IS_CUSTOMER') ? true : false
     if(!requirementFulfilled){
-      alert('Sorry you have to be a CPS Customer for Sunblock')
+
     }
     this.setState({
       isCpsCustomer: requirementFulfilled,
@@ -142,11 +151,14 @@ class DesignForm extends Component {
         <Section>
          <H2>Will Sunblock work for you?</H2>
          <P>The only requirement is that you are an active CPS Customer (ths San Antonio power utility). It doesn't matter if you rent or own a home, apartment, or commercial property.</P>
-         <Button id={'IS_CUSTOMER'}
-           onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
-         <Button
-           id={'NOT_CUSTOMER'}
-           onClick={this._handleIsCPSCustomer}>No, I am not a CPS customer</Button>
+         <div className="validCpsCustomerButtonContainer">
+           <Button id={'IS_CUSTOMER'}
+             onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
+           <Button
+             id={'NOT_CUSTOMER'}
+             onClick={this._handleIsCPSCustomer}>No, I am not a CPS customer</Button>
+         </div>
+         <CPSCustomerWarning isCPSCustomer={this.state.isCpsCustomer} />
          </Section>
 
          <Section>
@@ -164,8 +176,10 @@ class DesignForm extends Component {
                  id={'NO_ACCESS'}
                  onClick={this._handleHasCPSAccess}>Provide an estimate</Button>
              </Column>
-             Your Estimate Monthly Average is ${AvgMonthlyBill}
            </ButtonContainer>
+           <div className="monthlyAverage">
+             Your Estimate Monthly Average is ${AvgMonthlyBill}
+           </div>
            {(() => {
                 switch(hasCPSAccess) {
                   case 'HAS_ACCESS':
@@ -183,16 +197,14 @@ class DesignForm extends Component {
          </Section>
 
          <Section>
-           {
-             thirdSectionEnabled &&
+           { thirdSectionEnabled &&
              <div>
                <H2>Customize Your Sunblock</H2>
                <SolarPanelCalc
                  AvgMonthlyBill={AvgMonthlyBill}
                  isCpsCustomer={isCpsCustomer}
                />
-             </div>
-           }
+             </div> }
          </Section>
 
       </Container>
