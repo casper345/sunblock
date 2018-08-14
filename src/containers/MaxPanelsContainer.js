@@ -1,22 +1,25 @@
+import React from 'react'
 import { Container } from 'unstated'
 
 class MaxPanelsContainer extends Container {
   state = {
-    MaxPanels: 5,
+    MaxPanels: 0,
+    panels: 0,
+    panelArray: [],
   }
 
-  yell = () => console.log("yell")
-
   increment = () => {
-    console.log("Increment Clicked")
     this.setState({
-      MaxPanels: this.state.MaxPanels + 1
+      MaxPanels: this.state.MaxPanels + 1,
+      panelArray: [...this.state.panelArray, '']
     })
   }
   decrement = () => {
-    console.log("Decrease Clicked")
+    var newPanelArray = [...this.state.panelArray]
+    newPanelArray.pop(),
     this.setState({
-      MaxPanels: this.state.MaxPanels - 1
+      MaxPanels: this.state.MaxPanels - 1,
+      panelArray: newPanelArray
     })
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Provider } from 'unstated'
+import { Subscribe } from 'unstated'
 
 import SolarPanelImage from '../../assets/images/solar.png'
 
@@ -53,14 +53,11 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
   return(
     <Zone>
       <Row>
-        {
-          maxPanelArray.map((panel) => <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
-        }
         <Column>
           <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
           <Number>{MaxPanels}</Number>
           <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
-            <EnhancedSlider />
+          <EnhancedSlider />
         </Column>
       </Row>
 
