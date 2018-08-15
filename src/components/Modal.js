@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Subscribe } from 'unstated'
 
-import Button from './Button'
+import MaxPanelsContainer from '../containers/MaxPanelsContainer'
+
+import Color from '../constants/Color'
 
 const Container = styled.div`
   position: fixed;
@@ -28,18 +30,33 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const ModalButton = styled.button`
+  position:fixed;
+  height: auto;
+  top: 15%;
+  left: 95%;
+  transform: translate(-50%,-50%);
+  font-size: 16px;
+  border: 1px solid ${Color.secondaryColor};
+  border-radius: 50%;
+  color: ${Color.secondaryColor};
+`
 
 const Modal = ({ handleClose, modalVisible, children}) => {
   return(
     modalVisible &&
-    <Container>
-      <section>
-        <Content>
-          {children}
-          <Button onClick={handleClose}>close</Button>
-        </Content>
-      </section>
-    </Container>
+    <Subscribe to={[MaxPanelsContainer]}>
+      {container => (
+        <Container>
+          <section>
+            <Content>
+              {children}
+              <ModalButton onClick={handleClose}>X</ModalButton>
+            </Content>
+          </section>
+        </Container>
+      )}
+      </Subscribe>
   )
 }
 

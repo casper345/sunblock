@@ -8,8 +8,10 @@ import Color from '../../constants/Color'
 
 import SolarPanelCalc from './SolarPanelCalc'
 
-import { H2, P } from '../../components/StyledHeading'
-import Button from '../../components/Button'
+import { H2, P } from '../StyledHeading'
+import Button from '../Button'
+import Modal from '../Modal'
+import BuildingSelection from '../BuildingSelection'
 
 const Zone = styled.div`
 `;
@@ -57,50 +59,10 @@ const Column = styled.div`
   flex-direction: column;
   text-align: center;
 `;
-const ModalZone = styled.div`
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width:100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  section{
-    position:fixed;
-    z-index: 9999;
-    width: 50%;
-    height: auto;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    padding: 20px;
-    background: white;
-  }
-`
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-const Modal = ({ handleClose, modalVisible, children}) => {
-  return(
-    modalVisible &&
-    <ModalZone>
-      <section>
-        <Content>
-          {children}
-          <Button onClick={handleClose}>submit</Button>
-          <Button onClick={handleClose}>close</Button>
-        </Content>
-      </section>
-    </ModalZone>
-  )
-}
 
 function CPSCustomerWarning(props){
   const isCustomer = props.isCPSCustomer == null || props.isCPSCustomer
-  return !isCustomer && <P>Sorry you have to be a CPS Customer for Sunblock. But check out <a href="https://app.gosmartsolar.com">Go Smart Solar App</a></P>
+  return !isCustomer && <P>Sorry you have to be a CPS Customer for Sunblock. But check out <a href="https://app.gosmartsolar.com">Go Smart Solar App</a>. You can still play around on designing so you can see the advantages of Sunblock are!</P>
 }
 
 class DesignForm extends Component {
@@ -117,9 +79,7 @@ class DesignForm extends Component {
     this._handleIsCPSCustomer = this._handleIsCPSCustomer.bind(this);
     this._handleHasCPSAccess = this._handleHasCPSAccess.bind(this);
     this._handleModalClose = this._handleModalClose.bind(this);
-    this._handleChange = this._handleChange.bind(this);
     this._handleOrderModal = this._handleOrderModal.bind(this);
-    this._handleCalculate = this._handleCalculate.bind(this);
   }
 
   _handleIsCPSCustomer(event){
@@ -147,25 +107,11 @@ class DesignForm extends Component {
     })
   }
 
-  _handleCalculate(){
-    this.setState({
-      thirdSectionEnabled: true,
-    })
-  }
-
   _handleModalClose(){
     this.setState({
       modalVisible: false,
       orderModalVisible: false,
-      thirdSectionEnabled: true,
     })
-  }
-
-  _handleChange(event){
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({[name]: Number(value)});
   }
 
   render(){
@@ -189,6 +135,7 @@ class DesignForm extends Component {
 
          <Section>
            <H2>Let's find out how much solar energy you need</H2>
+           <BuildingSelection />
            <ButtonZone>
              <Column className="buttonZoneColumn">
                <P>YES, I can access the CPS portal</P>
@@ -215,7 +162,10 @@ class DesignForm extends Component {
                       {container => (
                         <div>
                         <Modal modalVisible={this.state.modalVisible}
-                          handleClose={this._handleModalClose}><h3>What was your estimated energy bill last month?</h3><input name="AvgMonthlyBill" type="number" onChange={container.setAverageMonthlyBill} defaultValue={container.state.averageMonthlyBill}/></Modal>
+                          handleClose={this._handleModalClose}>
+                          <h3>What was your estimated energy bill last month?</h3>
+                          <label name="avgMonthlyBill">Average Monthly Bill $:</label>
+                          <input name="avgMonthlyBill" type="number" onChange={container.setAverageMonthlyBill} defaultValue={container.state.averageMonthlyBill}/></Modal>
                           <P>
                            Your Estimate Monthly Average is ${container.state.averageMonthlyBill}
                          </P>
