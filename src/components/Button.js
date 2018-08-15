@@ -11,6 +11,7 @@ const Button = styled.button`
   background-color: ${({color}) => color};
   color: white;
   text-transform: uppercase;
+  cursor: pointer;
   &:hover{
     color: ${({color}) => color};
     border: 1px solid ${({color}) => color};

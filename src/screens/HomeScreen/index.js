@@ -62,8 +62,8 @@ class HomeScreen extends Component {
       <Zone>
         <Header />
         <ButtonZone>
-          <a href="/design-your-solar">See How it Works</a>
-          <a href="/how-gosmartsolar-sunblock-works" className="secondaryButton">Design Solar for You</a>
+          <a href="/how-gosmartsolar-sunblock-works">See How it Works</a>
+          <a href="/design-your-solar" className="secondaryButton">Design Solar for You</a>
         </ButtonZone>
         <Section>
           <H2>Half of US homes don't work for traditional solar.*</H2>
