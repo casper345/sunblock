@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
 import styled from 'styled-components'
 
 import Color from '../../constants/Color'
@@ -8,7 +7,6 @@ import Header from './Header'
 import Process from './Process'
 
 import { H2 } from '../../components/StyledHeading'
-import Button from '../../components/Button'
 
 const Zone = styled.div`
   display: flex;

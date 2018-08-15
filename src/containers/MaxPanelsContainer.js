@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container } from 'unstated'
 
 import Formula from '../constants/Formula'
@@ -39,7 +38,7 @@ class MaxPanelsContainer extends Container {
   }
   decrement = () => {
     var newPanelArray = [...this.state.panelArray]
-    newPanelArray.pop(),
+    newPanelArray.pop();
     this.setState({
       panels: this.state.panels - 1,
       panelArray: newPanelArray

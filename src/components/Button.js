@@ -3,6 +3,7 @@ import Color from '../constants/Color'
 
 const Button = styled.button`
   width: 190px;
+  margin: 2%;
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px solid ${({color}) => color};

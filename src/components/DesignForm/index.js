@@ -8,7 +8,7 @@ import Color from '../../constants/Color'
 
 import SolarPanelCalc from './SolarPanelCalc'
 
-import { H3, H2, P } from '../../components/StyledHeading'
+import { H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
 const Zone = styled.div`
@@ -36,9 +36,16 @@ const ButtonZone = styled.div`
   align-items: center;
   padding-top: 2%;
   padding-bottom: 2%;
-  background-color: ${Color.grey};
   @media(max-width: 600px) {
     flex-direction: column;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+  .buttonZoneColumn {
+    margin: 3%;
+    padding: 4%;
+    background-color: ${Color.grey};
   }
 `;
 const Row = styled.div`
@@ -100,7 +107,7 @@ class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      thirdSectionEnabled: false,
+      thirdSectionEnabled: true,
       BuildingType: '',
       isCpsCustomer: null,
       hasCPSAccess: null,
@@ -117,7 +124,7 @@ class DesignForm extends Component {
 
   _handleIsCPSCustomer(event){
     let buttonId = event.target.id
-    let requirementFulfilled = (buttonId == 'IS_CUSTOMER') ? true : false
+    let requirementFulfilled = (buttonId === 'IS_CUSTOMER') ? true : false
     if(!requirementFulfilled){
 
     }
@@ -162,7 +169,6 @@ class DesignForm extends Component {
   }
 
   render(){
-    const isCpsCustomer = this.state.isCpsCustomer;
     const hasCPSAccess = this.state.hasCPSAccess;
     const thirdSectionEnabled = this.state.thirdSectionEnabled;
 
@@ -184,13 +190,13 @@ class DesignForm extends Component {
          <Section>
            <H2>Let's find out how much solar energy you need</H2>
            <ButtonZone>
-             <Column>
+             <Column className="buttonZoneColumn">
                <P>YES, I can access the CPS portal</P>
                <Button
                  id={'HAS_ACCESS'}
                  onClick={this._handleHasCPSAccess}>Get your usage</Button>
              </Column>
-             <Column>
+             <Column className="buttonZoneColumn">
                <P>NO, I can't get to CPS online</P>
                <Button
                  id={'NO_ACCESS'}

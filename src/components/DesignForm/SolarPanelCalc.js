@@ -4,14 +4,10 @@ import { Subscribe } from 'unstated'
 
 import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
 
-import SolarPanelImage from '../../assets/images/solar.png'
-
 import Color from '../../constants/Color'
-import Formula from '../../constants/Formula'
 
 import EnhancedSlider from '../../components/Slider'
 import { H2, P } from '../../components/StyledHeading'
-import Button from '../../components/Button'
 
 const Zone = styled.div`
   display: flex;
@@ -43,11 +39,7 @@ const Number = styled.h2`
   margin: 0;
 `;
 
-const SolarPanelCalc = ({ AvgMonthlyBill }) => {
-  const MaxProductionAllowed = Formula.MAX_PRODUCTION_ALLOWED;
-  const CreditRate = Formula.CREDIT_RATE;
-  const PerPanelProduction = Formula.PER_PANEL_PRODUCTION;
-  var maxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
+const SolarPanelCalc = () => {
   return(
     <Zone>
       <Row>
@@ -66,7 +58,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
 
       <Row className="dataRow">
         <Column>
-          <P>A Sunblock system size of {maxPanels} panels will</P>
+          <P>A Sunblock system size of [maxPanels] panels will</P>
           <P>Pay for itself every month (cover monthly payment + loan fees) Learn More</P>
           <P>Offset 100% of your CPS power bill Learn More</P>
           <P>Even earn you a $15 monthly credit Learn More</P>

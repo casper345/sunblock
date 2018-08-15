@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Color from '../constants/Color'
 
-import { H1, H4, P } from '../components/StyledHeading'
+import { H4, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 
 const Zone = styled.div`

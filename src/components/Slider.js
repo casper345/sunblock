@@ -1,5 +1,4 @@
 import React from 'react'
-import Slider from '@material-ui/lab/Slider'
 import {  Subscribe } from 'unstated'
 
 import MaxPanelsContainer from '../containers/MaxPanelsContainer'
@@ -12,7 +11,7 @@ const EnhancedSlider = () => {
       {container => (
         <div>
           {
-            container.state.panelArray.map((panel, index) => <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
+            container.state.panelArray.map((panel, index) => <img key={index} className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
           }
           <button onClick={container.increment}>+</button>
           <button onClick={container.decrement}>-</button>
