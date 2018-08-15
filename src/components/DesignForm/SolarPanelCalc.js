@@ -2,13 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { Subscribe } from 'unstated'
 
+import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
+
 import SolarPanelImage from '../../assets/images/solar.png'
 
 import Color from '../../constants/Color'
 import Formula from '../../constants/Formula'
 
 import EnhancedSlider from '../../components/Slider'
-import { P } from '../../components/StyledHeading'
+import { H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
 const Zone = styled.div`
@@ -23,9 +25,6 @@ const Zone = styled.div`
     padding: 3%;
     align-items: center;
     background-color: ${Color.grey};
-  }
-  .orderButton {
-    margin-top: 30px;
   }
 `;
 const Column = styled.div`
@@ -49,16 +48,20 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
   const CreditRate = Formula.CREDIT_RATE;
   const PerPanelProduction = Formula.PER_PANEL_PRODUCTION;
   var maxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
-  var maxPanelArray = Array.apply(null, Array(maxPanels));
   return(
     <Zone>
       <Row>
-        <Column>
-          <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
-          <Number>{maxPanels}</Number>
-          <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
-          <EnhancedSlider />
-        </Column>
+        <Subscribe to={[MaxPanelsContainer]}>
+          {container => (
+          <Column>
+            <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
+            <Number>{container.state.maxPanels}</Number>
+            <P>You can adjust the amount of panels up or down, to a maximum of {container.state.maxPanels}.</P>
+            <EnhancedSlider />
+            <H2>Your cart of {container.state.panelArray.length}</H2>
+          </Column>
+          )}
+        </Subscribe>
       </Row>
 
       <Row className="dataRow">
@@ -74,7 +77,6 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
           <P>of peak power</P>
         </Column>
       </Row>
-      <Button className="orderButton">Order your panels now</Button>
     </Zone>
   )
 

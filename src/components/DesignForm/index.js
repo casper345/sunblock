@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Provider } from 'unstated'
+import { Subscribe } from 'unstated'
+
+import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
 
 import Color from '../../constants/Color'
 
 import SolarPanelCalc from './SolarPanelCalc'
 
-import { H2, P } from '../../components/StyledHeading'
+import { H3, H2, P } from '../../components/StyledHeading'
 import Button from '../../components/Button'
 
 const Zone = styled.div`
@@ -22,6 +24,9 @@ const Section = styled.div`
       align-items: center;
     }
   }
+  .orderButton {
+    margin-top: 30px;
+  }
 `;
 const ButtonZone = styled.div`
   max-width: 700px;
@@ -35,6 +40,10 @@ const ButtonZone = styled.div`
   @media(max-width: 600px) {
     flex-direction: column;
   }
+`;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 const Column = styled.div`
   display: flex;
@@ -84,24 +93,26 @@ const Modal = ({ handleClose, modalVisible, children}) => {
 
 function CPSCustomerWarning(props){
   const isCustomer = props.isCPSCustomer == null || props.isCPSCustomer
-  return !isCustomer && <div>Sorry you have to be a CPS Customer for Sunblock. But check out Go Smart Solar app</div>
+  return !isCustomer && <P>Sorry you have to be a CPS Customer for Sunblock. But check out <a href="https://app.gosmartsolar.com">Go Smart Solar App</a></P>
 }
 
 class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      thirdSectionEnabled: true,
+      thirdSectionEnabled: false,
       BuildingType: '',
       isCpsCustomer: null,
       hasCPSAccess: null,
-      AvgMonthlyBill: 0,
       modalVisible: false,
+      orderModalVisible: false,
     } ;
     this._handleIsCPSCustomer = this._handleIsCPSCustomer.bind(this);
     this._handleHasCPSAccess = this._handleHasCPSAccess.bind(this);
     this._handleModalClose = this._handleModalClose.bind(this);
     this._handleChange = this._handleChange.bind(this);
+    this._handleOrderModal = this._handleOrderModal.bind(this);
+    this._handleCalculate = this._handleCalculate.bind(this);
   }
 
   _handleIsCPSCustomer(event){
@@ -123,9 +134,22 @@ class DesignForm extends Component {
     })
   }
 
+  _handleOrderModal(){
+    this.setState({
+      orderModalVisible: true,
+    })
+  }
+
+  _handleCalculate(){
+    this.setState({
+      thirdSectionEnabled: true,
+    })
+  }
+
   _handleModalClose(){
     this.setState({
       modalVisible: false,
+      orderModalVisible: false,
       thirdSectionEnabled: true,
     })
   }
@@ -138,7 +162,6 @@ class DesignForm extends Component {
   }
 
   render(){
-    const AvgMonthlyBill = this.state.AvgMonthlyBill;
     const isCpsCustomer = this.state.isCpsCustomer;
     const hasCPSAccess = this.state.hasCPSAccess;
     const thirdSectionEnabled = this.state.thirdSectionEnabled;
@@ -174,9 +197,6 @@ class DesignForm extends Component {
                  onClick={this._handleHasCPSAccess}>Provide an estimate</Button>
              </Column>
            </ButtonZone>
-           <div className="monthlyAverage">
-             Your Estimate Monthly Average is ${AvgMonthlyBill}
-           </div>
            {(() => {
                 switch(hasCPSAccess) {
                   case 'HAS_ACCESS':
@@ -185,8 +205,18 @@ class DesignForm extends Component {
                     handleClose={this._handleModalClose}
                     ><h3>Upload Your CPS file here</h3></Modal>;
                   case 'NO_ACCESS':
-                    return <Modal modalVisible={this.state.modalVisible}
-                    handleClose={this._handleModalClose}><h3>What was your estimated energy bill last month?</h3><input name="AvgMonthlyBill" type="number" onChange={this._handleChange} defaultValue={this.state.AvgMonthlyBill}/></Modal>;
+                    return (<Subscribe to={[MaxPanelsContainer]}>
+                      {container => (
+                        <div>
+                        <Modal modalVisible={this.state.modalVisible}
+                          handleClose={this._handleModalClose}><h3>What was your estimated energy bill last month?</h3><input name="AvgMonthlyBill" type="number" onChange={container.setAverageMonthlyBill} defaultValue={container.state.averageMonthlyBill}/></Modal>
+                          <P>
+                           Your Estimate Monthly Average is ${container.state.averageMonthlyBill}
+                         </P>
+                         </div>
+                      )}
+                  </Subscribe>
+                  );
                   default:
                     return null;
                 }
@@ -196,11 +226,38 @@ class DesignForm extends Component {
          <Section>
            { thirdSectionEnabled &&
              <div>
+               <Subscribe to={[MaxPanelsContainer]}>
+                 {container => (
+                   <Button
+                     onClick={container.calcMaxPanels}>Calculate your Sunblock!</Button>
+                   )}
+                 </Subscribe>
                <H2>Customize Your Sunblock</H2>
-                 <SolarPanelCalc
-                   AvgMonthlyBill={AvgMonthlyBill}
-                   isCpsCustomer={isCpsCustomer}
-                 />
+                 <SolarPanelCalc />
+               <Button className="orderButton"
+                 onClick={this._handleOrderModal}>Order your panels now</Button>
+               <Modal modalVisible={this.state.orderModalVisible}
+                 handleClose={this._handleModalClose}>
+                 <H2>Order Your Panels Right now!</H2>
+                   <P>Complete the information to Get Started</P>
+                   <Row>
+                   <label>First Name:</label>
+                   <input name="name" type="text" />
+                   </Row>
+                   <Row>
+                   <label>Last Name:</label>
+                   <input name="name" type="text" />
+                   </Row>
+                   <Row>
+                   <label>Email:</label>
+                   <input name="name" type="text" />
+                   </Row>
+                   <Row>
+                     <Button>Down Payment Plan</Button>
+                     <Button>Finacing Plan</Button>
+                     <Button>Schedule a Call</Button>
+                   </Row>
+              </Modal>
              </div> }
          </Section>
 

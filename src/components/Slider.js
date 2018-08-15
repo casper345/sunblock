@@ -14,7 +14,6 @@ const EnhancedSlider = () => {
           {
             container.state.panelArray.map((panel, index) => <img className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
           }
-          {container.state.maxPanels}
           <button onClick={container.increment}>+</button>
           <button onClick={container.decrement}>-</button>
         </div>
