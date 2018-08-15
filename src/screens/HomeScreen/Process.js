@@ -35,6 +35,7 @@ const Process = () =>
 
 const Zone = styled.div`
   width: 80%;
+  max-width: 750px;
   margin-top: 10%;
   margin-bottom: 10%;
   @media(max-width: 700px){

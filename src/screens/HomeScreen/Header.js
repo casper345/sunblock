@@ -69,6 +69,7 @@ const Column = styled.div`
 `;
 const Row = styled.div`
   width: 80%;
+  max-width: 750px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
