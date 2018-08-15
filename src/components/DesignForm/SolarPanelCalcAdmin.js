@@ -25,7 +25,7 @@ class SolarPanelCalc extends Component {
       MaxProductionAllowed: 120,
       CreditRate: .09,
       PerPanelProduction: 46.63,
-      MaxPanels: 0,
+      maxPanels: 0,
       isMonthly: false,
       isAverage: true,
     }
@@ -62,7 +62,7 @@ class SolarPanelCalc extends Component {
     let calc = (this.state.AvgMonthlyBill * (this.state.MaxProductionAllowed/100))/(this.state.CreditRate * this.state.PerPanelProduction);
     this.setState({
       MaxProductionAllowed: this.state.MaxProductionAllowed,
-      MaxPanels: calc,});
+      maxPanels: calc,});
     console.log(calc);
   }
 
@@ -136,7 +136,7 @@ class SolarPanelCalc extends Component {
         <button type="button"
           onClick={this._handleSubmit}>Calc</button>
 
-        <h4>{this.state.MaxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed}% save</h4>
+        <h4>{this.state.maxPanels}# of panels you should purchase for a {this.state.MaxProductionAllowed}% save</h4>
         </Zone>
       </form>
     )

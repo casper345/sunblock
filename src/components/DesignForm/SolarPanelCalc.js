@@ -48,14 +48,14 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
   const MaxProductionAllowed = Formula.MAX_PRODUCTION_ALLOWED;
   const CreditRate = Formula.CREDIT_RATE;
   const PerPanelProduction = Formula.PER_PANEL_PRODUCTION;
-  var MaxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
-  var maxPanelArray = Array.apply(null, Array(MaxPanels));
+  var maxPanels = Math.floor((AvgMonthlyBill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
+  var maxPanelArray = Array.apply(null, Array(maxPanels));
   return(
     <Zone>
       <Row>
         <Column>
           <P>For your energy usage of ${AvgMonthlyBill} per month, we recommend</P>
-          <Number>{MaxPanels}</Number>
+          <Number>{maxPanels}</Number>
           <P>You can adjust the amount of panels up or down, to a maximum of 20.</P>
           <EnhancedSlider />
         </Column>
@@ -63,7 +63,7 @@ const SolarPanelCalc = ({ AvgMonthlyBill }) => {
 
       <Row className="dataRow">
         <Column>
-          <P>A Sunblock system size of {MaxPanels} panels will</P>
+          <P>A Sunblock system size of {maxPanels} panels will</P>
           <P>Pay for itself every month (cover monthly payment + loan fees) Learn More</P>
           <P>Offset 100% of your CPS power bill Learn More</P>
           <P>Even earn you a $15 monthly credit Learn More</P>

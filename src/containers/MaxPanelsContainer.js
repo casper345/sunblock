@@ -3,14 +3,15 @@ import { Container } from 'unstated'
 
 class MaxPanelsContainer extends Container {
   state = {
-    MaxPanels: 0,
+    maxPanels: 0,
     panels: 0,
     panelArray: [],
+    averageMonthlyBill: 0,
   }
 
   increment = () => {
     this.setState({
-      MaxPanels: this.state.MaxPanels + 1,
+      maxPanels: this.state.maxPanels + 1,
       panelArray: [...this.state.panelArray, '']
     })
   }
@@ -18,7 +19,7 @@ class MaxPanelsContainer extends Container {
     var newPanelArray = [...this.state.panelArray]
     newPanelArray.pop(),
     this.setState({
-      MaxPanels: this.state.MaxPanels - 1,
+      maxPanels: this.state.maxPanels - 1,
       panelArray: newPanelArray
     })
   }

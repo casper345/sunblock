@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components'
 
 import Color from '../../constants/Color'
@@ -19,22 +20,52 @@ const ButtonZone = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 3%;
+  a {
+    width: 190px;
+    margin: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid  ${Color.primaryColor};
+    background-color:  ${Color.primaryColor};
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover{
+      color:  ${Color.primaryColor};
+      border: 1px solid  ${Color.primaryColor};
+      background-color: white;
+    }
+  }
+  .secondaryButton {
+    border: 1px solid  ${Color.secondaryColor};
+    background-color:  ${Color.secondaryColor};
+    &:hover {
+      color:  ${Color.secondaryColor};
+      border: 1px solid  ${Color.secondaryColor};
+    }
+  }
+  @media(max-width: 500px){
+    flex-direction: column;
+  }
 `;
 const Section = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
-// TODO: spacing between city images and steps, general sapcing relation
 class HomeScreen extends Component {
   render(){
     return(
       <Zone>
         <Header />
         <ButtonZone>
-          <Button>See How It Works</Button>
-          <Button color={Color.secondaryColor}>Design Solar For You</Button>
+          <a href="/design-your-solar">See How it Works</a>
+          <a href="/how-gosmartsolar-sunblock-works" className="secondaryButton">Design Solar for You</a>
         </ButtonZone>
         <Section>
           <H2>Half of US homes don't work for traditional solar.*</H2>
@@ -46,4 +77,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen;
+export default HomeScreen

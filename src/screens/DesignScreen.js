@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Provider } from 'unstated'
 
 import Color from '../constants/Color'
 
@@ -9,9 +8,9 @@ import DesignForm from '../components/DesignForm/index'
 import Card from '../components/Card'
 
 const Zone = styled.div`
-  height: 100vh;
   display: flex;
   padding-top: 5%;
+  padding-bottom: 5%;
   flex-direction: column;
   align-items: center;
   background: #F2994A;

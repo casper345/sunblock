@@ -49,7 +49,7 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 2%;
-  background-color: ${Color.lightGrey};
+  background-color: ${Color.lightBrown};
   @media(max-width: 500px){
     padding-top: 10%;
   }
