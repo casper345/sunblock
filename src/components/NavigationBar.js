@@ -11,7 +11,11 @@ const Zone = styled.div`
   flex-direction: row;
   align-items: center;
   background-color: white;
-  box-shadow: 0 8px 6px -6px #999;
+  border-bottom: 5px solid;
+  -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  border-image-slice: 1;
   @media (max-width:700px){
     flex-direction: column;
     justify-content: center;

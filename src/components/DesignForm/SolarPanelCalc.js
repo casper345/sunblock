@@ -45,6 +45,7 @@ const SolarPanelCalc = () => {
               <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
               <H2>{container.state.maxPanels}</H2>
               <P>You can adjust the amount of panels up or down, to a maximum of {container.state.maxPanels}.</P>
+              <a href="">Why are 20 panels recommended?</a>
               <H2>Your cart of {container.state.panelArray.length} panels</H2>
               <Row className='buttonZone'>
                 <Button onClick={container.increment}>Add</Button>

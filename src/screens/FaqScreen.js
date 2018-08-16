@@ -7,17 +7,12 @@ import { H4, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 
 const Zone = styled.div`
-  height: 100vh;
   display: flex;
-  padding-top: 5%;
   flex-direction: column;
   align-items: center;
-  background: #F2994A;
-  background: -webkit-linear-gradient(to bottom, #F2C94C, #F2994A);
-  background: linear-gradient(to bottom, #F2C94C, #F2994A);
-  @media(max-width: 500px){
-    background-color: ${Color.grey}
-  }
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: ${Color.grey}
 `;
 const List = styled.ol`
   width: 70%;

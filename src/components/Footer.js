@@ -9,7 +9,6 @@ const Zone = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${Color.lightBrown};
 `;
 const Icon = styled.img`
   width: 25px;

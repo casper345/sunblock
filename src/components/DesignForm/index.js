@@ -69,7 +69,7 @@ class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      thirdSectionEnabled: true,
+      thirdSectionEnabled: false,
       BuildingType: '',
       isCpsCustomer: null,
       hasCPSAccess: null,
@@ -111,6 +111,7 @@ class DesignForm extends Component {
     this.setState({
       modalVisible: false,
       orderModalVisible: false,
+      thirdSectionEnabled: true,
     })
   }
 

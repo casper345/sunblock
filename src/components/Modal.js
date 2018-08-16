@@ -6,6 +6,8 @@ import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 
 import Color from '../constants/Color'
 
+import Button from './Button'
+
 const Container = styled.div`
   position: fixed;
   z-index: 99999;
@@ -52,6 +54,7 @@ const Modal = ({ handleClose, modalVisible, children}) => {
             <Content>
               {children}
               <ModalButton onClick={handleClose}>X</ModalButton>
+              <Button onClick={handleClose}>Submit</Button>
             </Content>
           </section>
         </Container>
