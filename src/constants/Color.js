@@ -1,7 +1,7 @@
 export default {
   primaryColor: '#15b8f5',
   primaryColor2: '#3B5998',
-  secondaryColor: '#F17105',
+  secondaryColor: '#f1c40f',
   grey: 'rgb(240,240,240)',
   lightBrown: 'rgb(243, 237, 231)',
 };

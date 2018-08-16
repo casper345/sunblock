@@ -14,8 +14,6 @@ const Zone = styled.div`
 `;
 const Section = styled.div`
   padding: 4% 0;
-  background: -webkit-linear-gradient(to bottom, #F2C94C, #F2994A);
-  background: linear-gradient(to bottom, #F2C94C, #F2994A);
   .boxZone {
     display: flex;
     flex-direction: row;

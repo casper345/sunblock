@@ -11,24 +11,13 @@ import SolarPanelCalc from './SolarPanelCalc'
 import { H2, P } from '../StyledHeading'
 import Button from '../Button'
 import Modal from '../Modal'
+import Card from '../Card'
 import BuildingSelection from '../BuildingSelection'
 
 const Zone = styled.div`
-`;
-const Section = styled.div`
-  margin-bottom: 4%;
-  .validCpsCustomerButtonZone {
-    margin: 1rem;
-    display: flex;
-    justify-content: space-around;
-    @media(max-width: 600px) {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  .orderButton {
-    margin-top: 30px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const ButtonZone = styled.div`
   max-width: 700px;
@@ -47,7 +36,7 @@ const ButtonZone = styled.div`
   .buttonZoneColumn {
     margin: 3%;
     padding: 4%;
-    background-color: ${Color.grey};
+    background-color: ${Color.secondaryColor};
   }
 `;
 const Row = styled.div`
@@ -69,8 +58,7 @@ class DesignForm extends Component {
   constructor(){
     super();
     this.state = {
-      thirdSectionEnabled: false,
-      BuildingType: '',
+      thirdSectionEnabled: true,
       isCpsCustomer: null,
       hasCPSAccess: null,
       modalVisible: false,
@@ -121,20 +109,20 @@ class DesignForm extends Component {
 
     return(
       <Zone>
-        <Section>
-         <H2>Will Sunblock work for you?</H2>
-         <P>The only requirement is that you are an active CPS Customer (ths San Antonio power utility). It doesn't matter if you rent or own a home, apartment, or commercial property.</P>
-         <div className="validCpsCustomerButtonZone">
-           <Button id={'IS_CUSTOMER'}
-             onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
-           <Button
-             id={'NOT_CUSTOMER'}
-             onClick={this._handleIsCPSCustomer}>No, I am not a CPS customer</Button>
-         </div>
-         <CPSCustomerWarning isCPSCustomer={this.state.isCpsCustomer} />
-         </Section>
+          <Card>
+            <H2>Will Sunblock work for you?</H2>
+            <P>The only requirement is that you are an active CPS Customer (ths San Antonio power utility). It doesn't matter if you rent or own a home, apartment, or commercial property.</P>
+            <div className="validCpsCustomerButtonZone">
+              <Button id={'IS_CUSTOMER'}
+                onClick={this._handleIsCPSCustomer}>Yes, I am a CPS customer</Button>
+                <Button
+                  id={'NOT_CUSTOMER'}
+                  onClick={this._handleIsCPSCustomer}>No, I am not a CPS customer</Button>
+                </div>
+                <CPSCustomerWarning isCPSCustomer={this.state.isCpsCustomer} />
+          </Card>
 
-         <Section>
+         <Card>
            <H2>Let's find out how much solar energy you need</H2>
            <BuildingSelection />
            <ButtonZone>
@@ -178,45 +166,46 @@ class DesignForm extends Component {
                     return null;
                 }
             })()}
-         </Section>
+         </Card>
 
-         <Section>
            { thirdSectionEnabled &&
-             <div>
-               <Subscribe to={[MaxPanelsContainer]}>
-                 {container => (
-                   <Button
-                     onClick={container.calcMaxPanels}>Calculate your Sunblock!</Button>
-                   )}
-                 </Subscribe>
-               <H2>Customize Your Sunblock</H2>
-                 <SolarPanelCalc />
-               <Button className="orderButton"
-                 onClick={this._handleOrderModal}>Order your panels now</Button>
-               <Modal modalVisible={this.state.orderModalVisible}
-                 handleClose={this._handleModalClose}>
-                 <H2>Order Your Panels Right now!</H2>
-                   <P>Complete the information to Get Started</P>
-                   <Row>
-                   <label>First Name:</label>
-                   <input name="name" type="text" />
-                   </Row>
-                   <Row>
-                   <label>Last Name:</label>
-                   <input name="name" type="text" />
-                   </Row>
-                   <Row>
-                   <label>Email:</label>
-                   <input name="name" type="text" />
-                   </Row>
-                   <Row>
-                     <Button>Down Payment Plan</Button>
-                     <Button>Finacing Plan</Button>
-                     <Button>Schedule a Call</Button>
-                   </Row>
-              </Modal>
-             </div> }
-         </Section>
+             <Card>
+               <div>
+                 <Subscribe to={[MaxPanelsContainer]}>
+                   {container => (
+                     <Button
+                       onClick={container.calcMaxPanels}>Calculate your Sunblock!</Button>
+                     )}
+                   </Subscribe>
+                   <H2>Customize Your Sunblock</H2>
+                     <SolarPanelCalc />
+                   <Button className="orderButton"
+                     onClick={this._handleOrderModal}>Order your panels now</Button>
+                   <Modal modalVisible={this.state.orderModalVisible}
+                     handleClose={this._handleModalClose}>
+                     <H2>Order Your Panels Right now!</H2>
+                       <P>Complete the information to Get Started</P>
+                       <Row>
+                       <label>First Name:</label>
+                       <input name="name" type="text" />
+                       </Row>
+                       <Row>
+                       <label>Last Name:</label>
+                       <input name="name" type="text" />
+                       </Row>
+                       <Row>
+                       <label>Email:</label>
+                       <input name="name" type="text" />
+                       </Row>
+                       <Row>
+                         <Button>Down Payment Plan</Button>
+                         <Button>Finacing Plan</Button>
+                         <Button>Schedule a Call</Button>
+                       </Row>
+                  </Modal>
+                </div>
+              </Card>
+           }
 
       </Zone>
     )

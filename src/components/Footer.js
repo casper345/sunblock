@@ -9,6 +9,11 @@ const Zone = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-top: 2px solid;
+  -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+  border-image-slice: 1;
 `;
 const Icon = styled.img`
   width: 25px;
