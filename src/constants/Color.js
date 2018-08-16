@@ -3,6 +3,7 @@ export default {
   primaryColor2: '#3B5998',
   secondaryColor: '#f1c40f',
   grey: 'rgb(240,240,240)',
+  white: '#fff',
   lightBrown: 'rgb(243, 237, 231)',
 };
 

@@ -18,6 +18,11 @@ const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .validCpsCustomerButtonZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 const ButtonZone = styled.div`
   max-width: 700px;
@@ -27,7 +32,7 @@ const ButtonZone = styled.div`
   align-items: center;
   padding-top: 2%;
   padding-bottom: 2%;
-  @media(max-width: 600px) {
+  @media(max-width: 500px) {
     flex-direction: column;
   }
   p {
@@ -36,7 +41,12 @@ const ButtonZone = styled.div`
   .buttonZoneColumn {
     margin: 3%;
     padding: 4%;
-    background-color: ${Color.secondaryColor};
+    background-color: ${Color.grey};
+    border-top: 2px solid;
+    -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+    -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+    border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+    border-image-slice: 1;
   }
 `;
 const Row = styled.div`
@@ -121,10 +131,12 @@ class DesignForm extends Component {
                 </div>
                 <CPSCustomerWarning isCPSCustomer={this.state.isCpsCustomer} />
           </Card>
-
+          <Card>
+            <BuildingSelection />
+          </Card>
          <Card>
            <H2>Let's find out how much solar energy you need</H2>
-           <BuildingSelection />
+           <P>See if you have access to your CPS portal</P>
            <ButtonZone>
              <Column className="buttonZoneColumn">
                <P>YES, I can access the CPS portal</P>

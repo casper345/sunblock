@@ -5,24 +5,38 @@ import HomeImage from '../assets/images/home.png'
 import ApartmentImage from '../assets/images/apartment.png'
 import CommercialImage from '../assets/images/commercial.png'
 
+import Color from '../constants/Color'
+
 import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 
-import { H4 } from './StyledHeading'
+import { H2, H4, P } from './StyledHeading'
 
 const Zone = styled.div`
-  margin: 5%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  .inputZone {
-    flex-direction: column;
-  }
-  label {
+  flex-direction: column;
+  .buildingZone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    @media(max-width: 500px){
+      flex-direction: column;
+    }
+    .columnZone {
+      max-width: 250px;
+      padding: 3%;
+      margin:  2%;
+      cursor: pointer;
+      background-color: ${Color.grey};
+    }
   }
   img {
-    width: 25%;
-    height: 25%;
+    width: 80%;
+    height: 80%;
+    @media(max-width: 500px){
+      width: 30%;
+    }
   }
 `
 
@@ -31,47 +45,21 @@ const BuildingSelection = () => {
     <Subscribe to={[MaxPanelsContainer]}>
       {container => (
         <Zone>
-          <div className="inputZone">
-            <H4>I'm considering solar for...</H4>
-            <label>
-              <input
-                type="radio"
-                value="home" checked={container.state.buildingType === "home"}
-                onChange={container.buildingChange}
-              />
-                A Home
-            </label>
-            <br />
-            <label>
-              <input
-                type="radio"
-                value="apartment" checked={container.state.buildingType === "apartment"}
-                onChange={container.buildingChange}
-              />
-              An Apartment
-            </label>
-            <br />
-            <label>
-              <input
-                type="radio"
-                value="commercial" checked={container.state.buildingType === "commercial"}
-                onChange={container.buildingChange}
-              />
-              A Commercial Building
-            </label>
+          <H2>I'm considering solar for...</H2>
+          <div className="buildingZone">
+            <div className="columnZone">
+              <img src={HomeImage} />
+              <P>A Home</P>
+            </div>
+            <div className="columnZone">
+              <img src={ApartmentImage} />
+              <P>An Apartment</P>
+            </div>
+            <div className="columnZone">
+              <img src={CommercialImage} />
+              <P>A Commercial Building</P>
+            </div>
           </div>
-          {(() => {
-            switch(container.state.buildingType) {
-              case 'home':
-                return <img src={HomeImage} />;
-              case 'apartment':
-                return <img src={ApartmentImage} />;
-              case 'commercial':
-                return <img src={CommercialImage} />;
-              default:
-                return <img src={HomeImage} />;
-            }
-          })()}
         </Zone>
       )}
     </Subscribe>

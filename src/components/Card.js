@@ -4,10 +4,9 @@ import styled from 'styled-components'
 import Color from '../constants/Color'
 
 const Zone = styled.div`
-  width: 80%;
   max-width: 900px;
-  margin: 3%;
-  padding: 2%;
+  margin: 1%;
+  padding: 4%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +23,6 @@ const Zone = styled.div`
   }
 `
 const Content = styled.div`
-  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;

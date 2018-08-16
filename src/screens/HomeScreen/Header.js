@@ -23,7 +23,7 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 2%;
-  background-color: ${Color.lightBrown};
+  background-color: ${Color.grey};
   @media(max-width: 500px){
     padding-top: 10%;
   }
