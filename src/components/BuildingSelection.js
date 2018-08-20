@@ -62,6 +62,12 @@ const BuildingSelection = () => {
                 src={CommercialImage} />
               <P>A Commercial Building</P>
             </div>
+            <div className="columnZone">
+              <img
+                alt="Non-profit building"
+                src={CommercialImage} />
+              <P>A Non-Profit Building</P>
+            </div>
           </div>
         </Zone>
       )}

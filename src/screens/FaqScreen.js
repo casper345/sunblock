@@ -5,7 +5,7 @@ import FaqData from '../assets/faq'
 
 import Color from '../constants/Color'
 
-import { H2, H4, P } from '../components/StyledHeading'
+import { H1, H4, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -18,7 +18,7 @@ const Zone = styled.div`
   align-items: center;
   padding-top: 5%;
   padding-bottom: 5%;
-  background-color: ${Color.grey}
+  background-color: ${Color.grey};
 `;
 const List = styled.ol`
   width: 70%;
@@ -29,10 +29,11 @@ class FaqScreen extends Component {
     return(
       <Zone>
         <Card>
-          <H2>SunBlock FAQ</H2>
+          <H1>SunBlock FAQ</H1>
         <List>
           {
             FaqData.map((data) =>
+            <div>
             <ExpansionPanel>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <H4>{data.question}</H4>
@@ -43,6 +44,7 @@ class FaqScreen extends Component {
                 </P>
               </ExpansionPanelDetails>
             </ExpansionPanel>
+            </div>
             )
           }
         </List>

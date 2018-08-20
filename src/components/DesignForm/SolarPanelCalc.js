@@ -34,6 +34,9 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  .sliderColumn {
+    padding: 5%;
+  }
 `;
 const PanelCartZone = styled.div`
   width: 400px;
@@ -50,7 +53,7 @@ const SolarPanelCalc = () => {
               <PanelCartZone>
                 <PanelCart />
               </PanelCartZone>
-              <Column>
+              <Column className={"sliderColumn"}>
                 <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
                 <H2>{container.state.maxPanels}</H2>
                 <P>You can adjust the amount of panels up or down, to a maximum of {container.state.maxPanels}.</P>

@@ -16,6 +16,7 @@ import BuildingSelection from '../BuildingSelection'
 import Slider from '../Slider'
 
 const Zone = styled.div`
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
