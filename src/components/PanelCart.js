@@ -11,8 +11,8 @@ const Zone = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   img {
-    width: 30px;
-    height: 30px;
+    max-width: 30px;
+    max-height: 30px;
   }
 `
 

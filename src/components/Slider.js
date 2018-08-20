@@ -25,14 +25,16 @@ const EnhancedSlider = ({ name }) => {
             <Slider
               min={0}
               max={500}
-              value={container.state.averageMonthlyBill} aria-labelledby="label" onChange={container.sliderChange} />
+              value={container.state.averageMonthlyBill}
+              aria-labelledby="label" onChange={container.sliderChange} />
           }
           {
             name === 'panelSlider' &&
             <Slider
               min={0}
-              max={100}
-              value={container.state.panelArray.length} aria-labelledby="label" onChange={container.sliderPanelChange} />
+              max={200}
+              value={container.state.panelArray.length}
+              aria-labelledby="label" onChange={container.sliderPanelChange} />
           }
         </Zone>
       )}

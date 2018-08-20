@@ -15,6 +15,7 @@ const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 4%;
   .peakPower {
     padding: 3%;
     align-items: center;
@@ -34,6 +35,10 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: center;
 `;
+const PanelCartZone = styled.div`
+  width: 400px;
+
+`
 
 const SolarPanelCalc = () => {
   return(
@@ -42,7 +47,9 @@ const SolarPanelCalc = () => {
         {container => (
           <div>
             <Row>
-              <PanelCart />
+              <PanelCartZone>
+                <PanelCart />
+              </PanelCartZone>
               <Column>
                 <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
                 <H2>{container.state.maxPanels}</H2>
@@ -54,7 +61,7 @@ const SolarPanelCalc = () => {
             </Row>
             <Row className="dataRow">
                 <Column>
-                  <P>A Sunblock system size of {container.state.panels} panels will</P>
+                  <P>A Sunblock system size of {container.state.panelArray.length} panels will</P>
                   <P>Pay for itself every month (cover monthly payment + loan fees)</P>
                   <P>Offset 100% of your CPS power bill</P>
                   <P>Even earn you a $15 monthly credit</P>

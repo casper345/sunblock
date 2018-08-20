@@ -38,26 +38,13 @@ class MaxPanelsContainer extends Container {
       panelArray: arr,
     })
   }
-  increment = () => {
-    var newArrayLength = this.state.panelArray.length;
-    this.setState({
-      panels: newArrayLength,
-      panelArray: [...this.state.panelArray, '']
-    })
-  }
-  decrement = () => {
-    var newPanelArray = [...this.state.panelArray]
-    newPanelArray.pop();
-    this.setState({
-      panels: newPanelArray.length,
-      panelArray: newPanelArray
-    })
-  }
+
   sliderChange = (event, value) => {
     this.setState({
       averageMonthlyBill: value
     })
   }
+  
   sliderPanelChange = (event, value) => {
     if(value > this.state.panelArray.length)
     {
