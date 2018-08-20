@@ -12,6 +12,7 @@ class MaxPanelsContainer extends Container {
   }
 
   buildingChange = (evt) => {
+    console.log(this.state.buildingType)
     this.setState({
       buildingType: evt.target.value
     })
@@ -44,7 +45,7 @@ class MaxPanelsContainer extends Container {
       averageMonthlyBill: value
     })
   }
-  
+
   sliderPanelChange = (event, value) => {
     if(value > this.state.panelArray.length)
     {

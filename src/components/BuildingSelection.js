@@ -26,6 +26,13 @@ const Zone = styled.div`
       padding: 3%;
       margin:  2%;
       cursor: pointer;
+      &:hover {
+        border: 2px solid;
+        -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+        -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+        border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
+        border-image-slice: 1;
+      }
     }
   }
   img {
