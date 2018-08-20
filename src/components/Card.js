@@ -10,7 +10,7 @@ const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 1px 1px 1px 1px grey;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
   }
   @media(max-width: 700px){

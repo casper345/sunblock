@@ -13,6 +13,7 @@ import Button from '../Button'
 import Modal from '../Modal'
 import Card from '../Card'
 import BuildingSelection from '../BuildingSelection'
+import Slider from '../Slider'
 
 const Zone = styled.div`
   display: flex;
@@ -42,11 +43,6 @@ const ButtonZone = styled.div`
     margin: 3%;
     padding: 4%;
     background-color: ${Color.grey};
-    border-top: 2px solid;
-    -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-    -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-    border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-    border-image-slice: 1;
   }
 `;
 const Row = styled.div`
@@ -167,9 +163,6 @@ class DesignForm extends Component {
                           <h3>What was your estimated energy bill last month?</h3>
                           <label name="avgMonthlyBill">Average Monthly Bill $:</label>
                           <input name="avgMonthlyBill" type="number" onChange={container.setAverageMonthlyBill} defaultValue={container.state.averageMonthlyBill}/></Modal>
-                          <P>
-                           Your Estimate Monthly Average is ${container.state.averageMonthlyBill}
-                         </P>
                          </div>
                       )}
                   </Subscribe>
@@ -178,17 +171,21 @@ class DesignForm extends Component {
                     return null;
                 }
             })()}
+            <Subscribe to={[MaxPanelsContainer]}>
+              {container => (
+                <div>
+                  Adjust your monthly estimate of ${container.state.averageMonthlyBill} with the slider
+                  <Slider name={'monthlyBillSlider'}/>
+                  <Button
+                    onClick={container.calcMaxPanels}>Calculate your Sunblock!</Button>
+                </div>
+              )}
+            </Subscribe>
          </Card>
 
            { thirdSectionEnabled &&
              <Card>
                <div>
-                 <Subscribe to={[MaxPanelsContainer]}>
-                   {container => (
-                     <Button
-                       onClick={container.calcMaxPanels}>Calculate your Sunblock!</Button>
-                     )}
-                   </Subscribe>
                    <H2>Customize Your Sunblock</H2>
                      <SolarPanelCalc />
                    <Button className="orderButton"

@@ -5,10 +5,10 @@ import Formula from '../constants/Formula'
 class MaxPanelsContainer extends Container {
   state = {
     buildingType: 'home',
-    maxPanels: 0,
-    panels: 0,
-    panelArray: [],
-    averageMonthlyBill: 0,
+    maxPanels: 1,
+    panels: 1,
+    panelArray: [''],
+    averageMonthlyBill: 250,
   }
 
   buildingChange = (evt) => {
@@ -34,6 +34,7 @@ class MaxPanelsContainer extends Container {
     var arr = Array.apply(null, Array(maxPanelsCalc));
     this.setState({
       maxPanels: maxPanelsCalc,
+      panels: maxPanelsCalc,
       panelArray: arr,
     })
   }
@@ -50,6 +51,16 @@ class MaxPanelsContainer extends Container {
     this.setState({
       panels: newPanelArray.length,
       panelArray: newPanelArray
+    })
+  }
+  sliderChange = (event, value) => {
+    this.setState({
+      averageMonthlyBill: value
+    })
+  }
+  sliderPanelChange = (event, value) => {
+    this.setState({
+      panels: value
     })
   }
 }

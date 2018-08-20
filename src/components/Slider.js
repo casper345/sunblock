@@ -4,7 +4,7 @@ import { Subscribe } from 'unstated'
 
 import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 
-import SolarPanelImage from '../assets/images/solar.png'
+import Slider from '@material-ui/lab/Slider'
 
 const Zone = styled.div`
   display: flex;
@@ -14,28 +14,26 @@ const Zone = styled.div`
     max-height: 50px;
   }
 `
-const ImageZone = styled.div`
-  width: 90%;
-  max-width: 500px;
-  min-width: 200px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  img {
 
-  }
-`
-
-const EnhancedSlider = () => {
+const EnhancedSlider = ({ name }) => {
   return(
     <Subscribe to={[MaxPanelsContainer]}>
       {container => (
         <Zone>
-          <ImageZone>
-            {
-              container.state.panelArray.map((panel, index) => <img key={index} className="solarImage"  src={SolarPanelImage} alt="Solar Panel"/>)
-            }
-          </ImageZone>
+          {
+            name === 'monthlyBillSlider' &&
+            <Slider
+              min={0}
+              max={500}
+              value={container.state.averageMonthlyBill} aria-labelledby="label" onChange={container.sliderChange} />
+          }
+          {
+            name === 'panelSlider' &&
+            <Slider
+              min={0}
+              max={500}
+              value={container.state.panels} aria-labelledby="label" onChange={container.sliderPanelChange} />
+          }
         </Zone>
       )}
     </Subscribe>
