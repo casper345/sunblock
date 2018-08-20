@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Card from '../components/Card'
 import Box from '../components/Box'
-import { H1, H2, H3 } from '../components/StyledHeading'
+import { H2, H3 } from '../components/StyledHeading'
 
 const Zone = styled.div`
   display: flex;

@@ -8,8 +8,8 @@ import Color from '../../constants/Color'
 
 import { H2, P } from '../../components/StyledHeading'
 import Slider from '../../components/Slider'
-import Button from '../../components/Button'
 import HorizontalLine from '../../components/HorizontalLine'
+import PanelCart from '../../components/PanelCart'
 
 const Zone = styled.div`
   display: flex;
@@ -42,6 +42,7 @@ const SolarPanelCalc = () => {
         {container => (
           <div>
             <Row>
+              <PanelCart />
               <Column>
                 <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
                 <H2>{container.state.maxPanels}</H2>

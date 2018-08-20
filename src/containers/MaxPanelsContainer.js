@@ -59,9 +59,20 @@ class MaxPanelsContainer extends Container {
     })
   }
   sliderPanelChange = (event, value) => {
-    this.setState({
-      panels: value
-    })
+    if(value > this.state.panelArray.length)
+    {
+      this.setState({
+        panelArray: [...this.state.panelArray, ''],
+      })
+    }
+    else{
+      var newPanelArray = [...this.state.panelArray]
+      newPanelArray.pop();
+      this.setState({
+        panels: newPanelArray.length,
+        panelArray: newPanelArray
+      })
+    }
   }
 }
 

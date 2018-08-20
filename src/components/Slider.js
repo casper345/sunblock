@@ -31,8 +31,8 @@ const EnhancedSlider = ({ name }) => {
             name === 'panelSlider' &&
             <Slider
               min={0}
-              max={500}
-              value={container.state.panels} aria-labelledby="label" onChange={container.sliderPanelChange} />
+              max={100}
+              value={container.state.panelArray.length} aria-labelledby="label" onChange={container.sliderPanelChange} />
           }
         </Zone>
       )}

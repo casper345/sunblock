@@ -18,7 +18,7 @@ const Zone = styled.div`
 
 const Box = ({icon, title, content}) =>
 <Zone>
-  <img src={icon} />
+  <img src={icon} alt="placeholder" />
   <H4>{title}</H4>
   <P>{content}</P>
 </Zone>

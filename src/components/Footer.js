@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Color from '../constants/Color'
-
 const Zone = styled.div`
   width: 100%;
   display: flex;

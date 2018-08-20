@@ -4,7 +4,6 @@ import Color from '../constants/Color'
 
 import DesignForm from '../components/DesignForm/index'
 
-import Card from '../components/Card'
 import HorizontalLine from '../components/HorizontalLine'
 import { H1, P } from '../components/StyledHeading'
 

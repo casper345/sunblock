@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Color from '../constants/Color'
 
 
 export const H1 = styled.h1`

@@ -5,11 +5,9 @@ import HomeImage from '../assets/images/home.png'
 import ApartmentImage from '../assets/images/apartment.png'
 import CommercialImage from '../assets/images/commercial.png'
 
-import Color from '../constants/Color'
-
 import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 
-import { H2, H4, P } from './StyledHeading'
+import { H2, P } from './StyledHeading'
 
 const Zone = styled.div`
   display: flex;
@@ -52,15 +50,21 @@ const BuildingSelection = () => {
           <H2>I'm considering solar for...</H2>
           <div className="buildingZone">
             <div className="columnZone">
-              <img src={HomeImage} />
+              <img
+                alt="Home building"
+                src={HomeImage} />
               <P>A Home</P>
             </div>
             <div className="columnZone">
-              <img src={ApartmentImage} />
+              <img
+                alt="Apartment building"
+                src={ApartmentImage} />
               <P>An Apartment</P>
             </div>
             <div className="columnZone">
-              <img src={CommercialImage} />
+              <img
+                alt="Commercial building"
+                src={CommercialImage} />
               <P>A Commercial Building</P>
             </div>
           </div>
