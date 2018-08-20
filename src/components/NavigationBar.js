@@ -7,6 +7,7 @@ import LogoIcon from '../assets/images/logo.png';
 const Zone = styled.div`
   width: 100vw;
   position: fixed;
+  z-index: 99999;
   display: flex;
   flex-direction: row;
   align-items: center;

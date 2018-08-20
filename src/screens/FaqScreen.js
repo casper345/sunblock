@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import FaqData from '../assets/faq'
+
 import Color from '../constants/Color'
 
-import { H4, P } from '../components/StyledHeading'
+import { H2, H4, P } from '../components/StyledHeading'
 import Card from '../components/Card'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Zone = styled.div`
   display: flex;
@@ -17,39 +23,28 @@ const Zone = styled.div`
 const List = styled.ol`
   width: 70%;
 `;
-const ListItem = styled.li`
-  margin-bottom: 7%;
-  list-style: none;
-`;
 
 class FaqScreen extends Component {
   render(){
     return(
       <Zone>
-        <Card
-          title={"FAQ"}
-          >
+        <Card>
+          <H2>SunBlock FAQ</H2>
         <List>
-          <ListItem>
-            <H4>What do we do when we must do what we need to do?</H4>
-            <P>Question and Answers are the only ones that decide the Answers to our Questions. Who will solve these so that they can be solved</P>
-          </ListItem>
-          <ListItem>
-            <H4>What do we do when we must do what we need to do?</H4>
-            <P>Question and Answers are the only ones that decide the Answers to our Questions. Who will solve these so that they can be solved</P>
-          </ListItem>
-          <ListItem>
-            <H4>What do we do when we must do what we need to do?</H4>
-            <P>Question and Answers are the only ones that decide the Answers to our Questions. Who will solve these so that they can be solved</P>
-          </ListItem>
-          <ListItem>
-            <H4>What do we do when we must do what we need to do?</H4>
-            <P>Question and Answers are the only ones that decide the Answers to our Questions. Who will solve these so that they can be solved</P>
-          </ListItem>
-          <ListItem>
-            <H4>What do we do when we must do what we need to do?</H4>
-            <P>Question and Answers are the only ones that decide the Answers to our Questions. Who will solve these so that they can be solved</P>
-          </ListItem>
+          {
+            FaqData.map((data) =>
+            <ExpansionPanel>
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                <H4>{data.question}</H4>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                <P>
+                  {data.answer}
+                </P>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+            )
+          }
         </List>
         </Card>
       </Zone>
