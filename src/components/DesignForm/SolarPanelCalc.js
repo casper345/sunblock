@@ -10,6 +10,7 @@ import { H2, P } from '../../components/StyledHeading'
 import Slider from '../../components/Slider'
 import HorizontalLine from '../../components/HorizontalLine'
 import PanelCart from '../../components/PanelCart'
+import Infographic from '../../components/Infographic'
 
 const Zone = styled.div`
   display: flex;
@@ -76,6 +77,11 @@ const SolarPanelCalc = () => {
                   <P>of peak power</P>
                 </Column>
             </Row>
+            <Column>
+              <H2>Environmental Impact</H2>
+              <HorizontalLine />
+              <Infographic />
+            </Column>
           </div>
         )}
       </Subscribe>

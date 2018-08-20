@@ -43,7 +43,8 @@ const ButtonZone = styled.div`
   .buttonZoneColumn {
     margin: 3%;
     padding: 4%;
-    background-color: ${Color.grey};
+    border: 1px solid ${Color.grey};
+    border-radius: 10px;
   }
 `;
 const Row = styled.div`
