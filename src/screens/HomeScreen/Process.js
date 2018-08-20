@@ -10,14 +10,14 @@ const Process = () =>
   <Section>
     <CityImage src={city} />
     <ContentZone>
-      <H4>1. We've made solar totally roofless</H4>
+      <H4>1. Nothing on Your Roof</H4>
       <br/>
       <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
     </ContentZone>
   </Section>
   <Section>
     <ContentZone>
-      <H4>2. We've made solar a lot easier</H4>
+      <H4>2. Maintenance Free</H4>
       <br/>
       <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
     </ContentZone>
@@ -26,7 +26,7 @@ const Process = () =>
   <Section>
     <CityImage src={city} />
     <ContentZone>
-      <H4>3. We've made solar insanely afforadable</H4>
+      <H4>3. Earn Money Instantly</H4>
       <br/>
       <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
     </ContentZone>

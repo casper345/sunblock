@@ -2,10 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import defaultImage from '../../assets/images/pokecenter.png'
+import HeroImage from '../../assets/images/heroImage3.jpg'
 
 import Color from '../../constants/Color'
 
 import { H1, H3, P } from '../../components/StyledHeading'
+import HorizontalLine from '../../components/HorizontalLine'
+// import Card from '../../components/Card'
 
 const Zone = styled.div`
   width: 100%;
@@ -13,29 +16,38 @@ const Zone = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2%;
   margin-bottom: 5%;
 `
+const ImageBackground = styled.div`
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background-image: url(${HeroImage});
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`
 const Section = styled.div`
-  width: 90%;
-  height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2%;
-  background-color: ${Color.grey};
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   @media(max-width: 500px){
     padding-top: 10%;
   }
 `
-const Column = styled.div`
+const Card = styled.div`
   width: 20%;
   max-width: 150px;
   min-width: 80px;
+  margin: 0;
+  padding: 1%;
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: white;
   @media(max-width: 500px){
     width: 80%;
     max-width: 300px;
@@ -44,11 +56,11 @@ const Column = styled.div`
 const Row = styled.div`
   width: 80%;
   max-width: 750px;
+  margin: -45px 0 0 0;
+  z-index: 500;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0;
-  margin-top: -75px;
   @media(max-width: 500px){
     width: 100%;
     flex-direction: column;
@@ -57,36 +69,29 @@ const Row = styled.div`
     margin-top: 0px;
   }
 `
-const BoxImage = styled.img`
-  max-width: 130px;
-  @media(max-width: 500px){
-    max-width: 300px;
-  }
-`
 
 const Header = () =>
   <Zone>
-    <Section>
-      <H1>Solar for everyone. On every block.</H1>
-      <H3>NOTHING GOES ON YOUR ROOF. ENERGY WITHOUT THE WORRY</H3>
-    </Section>
+    <ImageBackground>
+      <Section>
+        <H1>Solar for everyone. <br />On every block.</H1>
+        <HorizontalLine margin={2}/>
+        <H3>Nothing on Your Roof. <br /> Energy without the Worry.</H3>
+      </Section>
+    </ImageBackground>
     <Row>
-      <Column>
-        <BoxImage src={defaultImage} />
-        <P>Work for any home with any food</P>
-      </Column>
-      <Column>
-        <BoxImage src={defaultImage} />
-        <P>Even with lots of shade</P>
-      </Column>
-      <Column>
-        <BoxImage src={defaultImage} />
-        <P>Even Apartments and Rental homes</P>
-      </Column>
-      <Column>
-        <BoxImage src={defaultImage} />
-        <P>HOA & Historic Neighborhoods</P>
-      </Column>
+      <Card>
+        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
+      </Card>
+      <Card>
+        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
+      </Card>
+      <Card>
+        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
+      </Card>
+      <Card>
+        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
+      </Card>
     </Row>
   </Zone>
 
