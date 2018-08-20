@@ -55,6 +55,15 @@ const Section = styled.div`
   align-items: center;
   text-align: center;
 `;
+const ProcessSection = styled.div`
+  width: 100%;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${Color.white};
+  background-color: ${Color.primaryColor2};
+`;
 
 class HomeScreen extends Component {
   render(){
@@ -69,7 +78,9 @@ class HomeScreen extends Component {
           <H2>Half of US homes don't work for traditional solar.*</H2>
           <H2>We are here to fix that.</H2>
         </Section>
-        <Process />
+        <ProcessSection>
+          <Process />
+        </ProcessSection>
       </Zone>
     );
   }

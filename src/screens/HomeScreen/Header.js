@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import defaultImage from '../../assets/images/pokecenter.png'
 import HeroImage from '../../assets/images/heroImage3.jpg'
 
 import Color from '../../constants/Color'
@@ -23,7 +22,7 @@ const ImageBackground = styled.div`
   height: 400px;
   position: relative;
   background-image: url(${HeroImage});
-  background-color: #cccccc;
+  background-color: ${Color.grey};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,7 +49,7 @@ const Card = styled.div`
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
   @media(max-width: 500px){
-    width: 80%;
+    width: 90%;
     max-width: 300px;
   }
 `
