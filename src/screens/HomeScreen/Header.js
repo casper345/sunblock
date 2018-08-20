@@ -45,6 +45,7 @@ const Card = styled.div`
   padding: 1%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
@@ -56,7 +57,7 @@ const Card = styled.div`
 const Row = styled.div`
   width: 80%;
   max-width: 750px;
-  margin: -45px 0 0 0;
+  margin: -70px 0 0 0;
   z-index: 500;
   display: flex;
   flex-direction: row;
@@ -69,6 +70,11 @@ const Row = styled.div`
     margin-top: 0px;
   }
 `
+const Icon = styled.img`
+  width: 20%;
+  height: 20%;
+  margin: 10px;
+`;
 
 const Header = () =>
   <Zone>
@@ -81,15 +87,19 @@ const Header = () =>
     </ImageBackground>
     <Row>
       <Card>
+        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
         <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
       </Card>
       <Card>
+        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
         <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
       </Card>
       <Card>
+        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
         <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
       </Card>
       <Card>
+        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
         <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
       </Card>
     </Row>

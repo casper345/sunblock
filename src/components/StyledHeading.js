@@ -53,7 +53,7 @@ line-height: 1.11111111;
 `;
 export const P = styled.p`
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   @media (min-width: 43.75em) {
       ${'' /* font-size: 1.5em;
