@@ -39,7 +39,6 @@ class App extends Component {
               <Route exact path="/design-your-solar" component={DesignScreen} />
               <Route exact path="/faq" component={FaqScreen} />
               <Route exact path="/admin" component={Admin} />
-              <Route component={NotFoundScreen} />
             </Main>
             <Footer />
           </Zone>

@@ -12,9 +12,8 @@ class MaxPanelsContainer extends Container {
   }
 
   buildingChange = (evt) => {
-    console.log(this.state.buildingType)
     this.setState({
-      buildingType: evt.target.value
+      buildingType: evt.target.name
     })
   }
 
