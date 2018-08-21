@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen/index'
 import SunblockScreen from './screens/SunblockScreen'
 import DesignScreen from './screens/DesignScreen'
 import FaqScreen from './screens/FaqScreen'
+import NotFoundScreen from './screens/NotFoundScreen'
 import Admin from './screens/Admin'
 
 import NavigationBar from './components/NavigationBar'
@@ -38,6 +39,7 @@ class App extends Component {
               <Route exact path="/design-your-solar" component={DesignScreen} />
               <Route exact path="/faq" component={FaqScreen} />
               <Route exact path="/admin" component={Admin} />
+              <Route component={NotFoundScreen} />
             </Main>
             <Footer />
           </Zone>
