@@ -4,44 +4,21 @@ import Formula from '../constants/Formula'
 
 class MaxPanelsContainer extends Container {
   state = {
-    buildingType: 'home',
-    maxPanels: 1,
+    averageMonthlyBill: 250,
+    maxPanels: 20,
     panels: 1,
     panelArray: [''],
-    averageMonthlyBill: 250,
   }
 
-  buildingChange = (evt) => {
-    this.setState({
-      buildingType: evt.target.name
-    })
-  }
-
-  setAverageMonthlyBill = (evt) => {
-    var bill = evt.target.value
-    this.setState({
-      averageMonthlyBill: bill,
-    })
-
-  }
-
-  calcMaxPanels = () => {
-    const bill = this.state.averageMonthlyBill;
+  sliderChange = (event, value) => {
+    const bill = value;
     const MaxProductionAllowed = Formula.MAX_PRODUCTION_ALLOWED;
     const CreditRate = Formula.CREDIT_RATE;
     const PerPanelProduction = Formula.PER_PANEL_PRODUCTION;
     var maxPanelsCalc = Math.floor((bill * (MaxProductionAllowed/100))/(CreditRate * PerPanelProduction));
-    var arr = Array.apply(null, Array(maxPanelsCalc));
     this.setState({
+      averageMonthlyBill: Math.round(value),
       maxPanels: maxPanelsCalc,
-      panels: maxPanelsCalc,
-      panelArray: arr,
-    })
-  }
-
-  sliderChange = (event, value) => {
-    this.setState({
-      averageMonthlyBill: value
     })
   }
 

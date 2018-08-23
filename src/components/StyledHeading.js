@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Color from '../constants/Color'
 
 export const H1 = styled.h1`
   margin: 0;
@@ -60,3 +60,7 @@ export const P = styled.p`
       line-height: 1.45833333; */}
     }
 `;
+
+P.defaultProps = {
+  color: Color.primaryColor,
+}

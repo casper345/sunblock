@@ -38,7 +38,6 @@ class App extends Component {
               <Route exact path="/how-gosmartsolar-sunblock-works" component={SunblockScreen} />
               <Route exact path="/design-your-solar" component={DesignScreen} />
               <Route exact path="/faq" component={FaqScreen} />
-              <Route exact path="/admin" component={Admin} />
             </Main>
             <Footer />
           </Zone>

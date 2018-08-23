@@ -13,7 +13,7 @@ const Zone = styled.div`
   align-items: center;
   padding-top: 2%;
   padding-bottom: 5%;
-  background-color: ${Color.white};
+  background-color: ${Color.lightBlue};
 `;
 const Heading = styled.div`
   width: 60%;

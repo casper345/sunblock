@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Zone = styled.div`
-  max-width: 900px;
+  max-width: 500px;
+  min-width: 200px;
   margin: 1%;
   padding: 4%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   background-color: white;
   }

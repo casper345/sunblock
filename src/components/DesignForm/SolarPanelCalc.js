@@ -18,7 +18,8 @@ const Zone = styled.div`
   align-items: center;
   margin-top: 4%;
   .peakPower {
-    padding: 3%;
+    width: 20%;
+    padding: 2%;
     align-items: center;
     background-color: ${Color.secondaryColor};
   }
@@ -35,6 +36,9 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  .infoData {
+    width: 50%;
+  }
   .sliderColumn {
     padding: 5%;
   }
@@ -49,40 +53,16 @@ const SolarPanelCalc = () => {
     <Zone>
       <Subscribe to={[MaxPanelsContainer]}>
         {container => (
-          <div>
             <Row>
               <PanelCartZone>
                 <PanelCart />
               </PanelCartZone>
               <Column className={"sliderColumn"}>
-                <P>For your energy usage of ${container.state.averageMonthlyBill} per month, we recommend</P>
                 <H2>{container.state.maxPanels}</H2>
-                <P>You can adjust the amount of panels up or down, to a maximum of {container.state.maxPanels}.</P>
                 <Slider name={'panelSlider'}/>
-                <a href="">Why are {container.state.maxPanels} panels recommended?</a>
                 <H2>Your cart of {container.state.panelArray.length} panels</H2>
               </Column>
             </Row>
-            <Row className="dataRow">
-                <Column>
-                  <P>A Sunblock system size of {container.state.panelArray.length} panels will</P>
-                  <P>Pay for itself every month (cover monthly payment + loan fees)</P>
-                  <P>Offset 100% of your CPS power bill</P>
-                  <P>Even earn you a $15 monthly credit</P>
-                </Column>
-                <Column className="peakPower">
-                  <P>Did you know? Your Sunblock will generate</P>
-                  <H2>8.5kw</H2>
-                  <HorizontalLine color={'grey'} width={100}/>
-                  <P>of peak power</P>
-                </Column>
-            </Row>
-            <Column>
-              <H2>Environmental Impact</H2>
-              <HorizontalLine />
-              <Infographic />
-            </Column>
-          </div>
         )}
       </Subscribe>
     </Zone>

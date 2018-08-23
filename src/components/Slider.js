@@ -9,10 +9,6 @@ import Slider from '@material-ui/lab/Slider'
 const Zone = styled.div`
   display: flex;
   flex-direction: column;
-  .solarImage{
-    max-width: 50px;
-    max-height: 50px;
-  }
 `
 
 const EnhancedSlider = ({ name }) => {
@@ -32,7 +28,7 @@ const EnhancedSlider = ({ name }) => {
             name === 'panelSlider' &&
             <Slider
               min={0}
-              max={100}
+              max={container.state.maxPanels}
               value={container.state.panelArray.length}
               aria-labelledby="label" onChange={container.sliderPanelChange} />
           }
