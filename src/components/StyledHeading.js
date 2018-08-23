@@ -31,7 +31,7 @@ export const H2 = styled.h2`;
 `;
 export const H3 = styled.h3`
   margin: 0;
-  font-size: 1.375em;
+  font-size: 1.157em;
   line-height: 1.13636364;
   font-weight: normal;
   @media (min-width: 43.75em) {

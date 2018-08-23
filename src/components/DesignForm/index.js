@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Subscribe } from 'unstated'
 
+import CarImage from '../../assets/images/car.png'
+import TreeImage from '../../assets/images/tree.png'
+import Co2Image from '../../assets/images/co2.png'
+
 import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
 
 import Color from '../../constants/Color'
 
-import { H4, P } from '../StyledHeading'
+import { H3, H4, P } from '../StyledHeading'
 import Card from '../Card'
 import Button from '../Button'
 import Slider from '../Slider'
@@ -29,13 +33,19 @@ const Zone = styled.div`
 `
 const DataCard = styled.div`
   width: 200px;
-  height: 50px;
+  height: 100px;
   margin: 3%;
   padding: 1%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   border: 1px solid ${Color.grey};
   border-radius: 10px;
+  img {
+    max-width: 40px;
+  }
 `
 const Row = styled.div`
   display: flex;
@@ -49,12 +59,15 @@ const EnviromentComponent = props => {
   <Card>
     <Row>
       <DataCard>
+        <img src={TreeImage} alt='trees by Deemak Daksina from the Noun Project' />
         {tree} trees
       </DataCard>
       <DataCard>
+        <img src={CarImage} alt='Car by Jens Tärning from the Noun Project' />
         {carMileDriven} miles driven
       </DataCard>
       <DataCard>
+        <img src={Co2Image} alt='molecule by Abir Alward from the Noun Project' />
         {co2} CO2
       </DataCard>
     </Row>
@@ -66,23 +79,23 @@ const CostComponent = props => {
   return(
   <Card>
     <Row>
-      <H4>Gross cost $</H4>
-      <P>{ grossCost }</P>
+      <H3>Gross cost</H3>
+      <P>${ grossCost }</P>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H4>CPSE Rebate ($)</H4>
-      <P>{ cpseRebate }</P>
+      <H3>CPSE Rebate</H3>
+      <P>${ cpseRebate }</P>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H4>Net Benefits $</H4>
-      <P>{ netBenefits }</P>
+      <H3>Net Benefits</H3>
+      <P>${ netBenefits }</P>
     </Row> {/* commercial? */}
     <HorizontalLine width={100}/>
     <Row>
-      <H4>Final Cost</H4>
-      <P>{ finalCost }</P>
+      <H3>Final Cost</H3>
+      <P>${ finalCost }</P>
     </Row>
   </Card>
 )}
@@ -108,7 +121,7 @@ const DataComponent = props => {
     <Row>
       <DataCard>
         <H4>Payback Years</H4>
-        <P>{paybackYears} years</P>
+        <P>{paybackYears} yrs</P>
       </DataCard>
       <DataCard>
         <H4>IRR</H4>
