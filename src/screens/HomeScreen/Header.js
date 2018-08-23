@@ -7,7 +7,6 @@ import Color from '../../constants/Color'
 
 import { H1, H3, P } from '../../components/StyledHeading'
 import HorizontalLine from '../../components/HorizontalLine'
-// import Card from '../../components/Card'
 
 const Zone = styled.div`
   width: 100%;

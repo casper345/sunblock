@@ -5,7 +5,7 @@ import FaqData from '../assets/faq'
 
 import Color from '../constants/Color'
 
-import { H1, H4, P } from '../components/StyledHeading'
+import { H1, H3, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -36,7 +36,7 @@ class FaqScreen extends Component {
             <div>
             <ExpansionPanel>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <H4>{data.question}</H4>
+                <H3>{data.question}</H3>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <P>

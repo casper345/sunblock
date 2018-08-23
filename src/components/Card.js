@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Zone = styled.div`
-  max-width: 500px;
   min-width: 200px;
   margin: 1%;
   padding: 3%;

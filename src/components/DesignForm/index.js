@@ -60,7 +60,7 @@ const EnviromentComponent = props => {
     <Row>
       <DataCard>
         <img src={TreeImage} alt='trees by Deemak Daksina from the Noun Project' />
-        {tree} trees
+        {tree} trees planted
       </DataCard>
       <DataCard>
         <img src={CarImage} alt='Car by Jens Tärning from the Noun Project' />
@@ -68,7 +68,7 @@ const EnviromentComponent = props => {
       </DataCard>
       <DataCard>
         <img src={Co2Image} alt='molecule by Abir Alward from the Noun Project' />
-        {co2} CO2
+        {co2} CO2 metric tons
       </DataCard>
     </Row>
   </Card>
@@ -79,22 +79,22 @@ const CostComponent = props => {
   return(
   <Card>
     <Row>
-      <H3>Gross cost</H3>
+      <H4>Gross cost</H4>
       <P>${ grossCost }</P>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H3>CPSE Rebate</H3>
+      <H4>CPSE Rebate</H4>
       <P>${ cpseRebate }</P>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H3>Net Benefits</H3>
+      <H4>Net Benefits</H4>
       <P>${ netBenefits }</P>
     </Row> {/* commercial? */}
     <HorizontalLine width={100}/>
     <Row>
-      <H3>Final Cost</H3>
+      <H4>Final Cost</H4>
       <P>${ finalCost }</P>
     </Row>
   </Card>
@@ -154,7 +154,7 @@ class DesignForm extends Component {
                    Number of Panels
                    <Slider name={'panelSlider'}/>
                    Max number of panels you can purchase = {container.state.maxPanels}* <br />
-                   *Based on monthly estimate
+                   <P>*Based on monthly estimate, cannot go over 120% electricity usage</P>
                  </div>
            </Card>
            <Card className='panelCart'>

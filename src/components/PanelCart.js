@@ -11,8 +11,9 @@ const Zone = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   img {
-    max-width: 20px;
-    max-height: 20px;
+    margin: 2px;
+    max-width: 30px;
+    max-height: 30px;
   }
 `
 
@@ -21,7 +22,7 @@ const PanelCart = () =>
   <Subscribe to={[MaxPanelsContainer]}>
     {container => (
       <div>
-        Your cart has {container.state.panelArray.length} <br />
+        Your cart has {container.state.panelArray.length} panels<br />
         {
           container.state.panelArray.map((panel, index) => <img key={index} className="solarImage"  src={PanelImage} alt="Solar Panel"/>)
         }

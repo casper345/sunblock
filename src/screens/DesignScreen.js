@@ -17,6 +17,7 @@ const Zone = styled.div`
 `;
 const Heading = styled.div`
   width: 60%;
+  margin-bottom: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
