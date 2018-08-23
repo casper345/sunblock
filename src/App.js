@@ -8,8 +8,6 @@ import HomeScreen from './screens/HomeScreen/index'
 import SunblockScreen from './screens/SunblockScreen'
 import DesignScreen from './screens/DesignScreen'
 import FaqScreen from './screens/FaqScreen'
-import NotFoundScreen from './screens/NotFoundScreen'
-import Admin from './screens/Admin'
 
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'

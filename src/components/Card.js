@@ -5,7 +5,7 @@ const Zone = styled.div`
   max-width: 500px;
   min-width: 200px;
   margin: 1%;
-  padding: 4%;
+  padding: 3%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
