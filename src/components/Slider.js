@@ -7,6 +7,7 @@ import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 import Slider from '@material-ui/lab/Slider'
 
 const Zone = styled.div`
+width: 100%;
   display: flex;
   flex-direction: column;
 `
@@ -22,14 +23,14 @@ const EnhancedSlider = ({ name }) => {
               min={0}
               max={500}
               step={1}
-              value={container.state.averageMonthlyBill}
+              value={container.state.lastMonthBill}
               aria-labelledby="label" onChange={container.sliderChange} />
           }
           {
             name === 'panelSlider' &&
             <Slider
               min={0}
-              max={container.state.maxPanels}
+              max={100}
               step={1}
               value={container.state.panelArray.length}
               aria-labelledby="label" onChange={container.sliderPanelChange} />

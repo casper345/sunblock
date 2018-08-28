@@ -12,8 +12,8 @@ const Zone = styled.div`
   flex-wrap: wrap;
   img {
     margin: 2px;
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 15px;
+    max-height: 15px;
   }
 `
 

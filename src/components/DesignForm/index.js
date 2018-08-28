@@ -10,7 +10,7 @@ import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
 
 import Color from '../../constants/Color'
 
-import { H3, H4, P } from '../StyledHeading'
+import { H4, P } from '../StyledHeading'
 import Card from '../Card'
 import Button from '../Button'
 import Slider from '../Slider'
@@ -34,7 +34,7 @@ const Zone = styled.div`
 const DataCard = styled.div`
   width: 200px;
   height: 100px;
-  margin: 3%;
+  margin: 1%;
   padding: 1%;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,12 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  .costRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
 const EnviromentComponent = props => {
@@ -79,23 +85,24 @@ const CostComponent = props => {
   return(
   <Card>
     <Row>
-      <H4>Gross cost</H4>
-      <P>${ grossCost }</P>
+      <div className="costRow">
+        <H4>Gross cost</H4>
+        <P>${ grossCost }</P>
+      </div>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H4>CPSE Rebate</H4>
-      <P>${ cpseRebate }</P>
+      <div className="costRow">
+        <H4>CPSE Rebate</H4>
+        <P>${ cpseRebate }</P>
+      </div>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
-      <H4>Net Benefits</H4>
-      <P>${ netBenefits }</P>
-    </Row> {/* commercial? */}
-    <HorizontalLine width={100}/>
-    <Row>
-      <H4>Final Cost</H4>
-      <P>${ finalCost }</P>
+      <div className="costRow">
+        <H4>Final Cost</H4>
+        <P>${ finalCost }</P>
+      </div>
     </Row>
   </Card>
 )}
@@ -146,7 +153,7 @@ class DesignForm extends Component {
                   <div>
                     How much was your CPS bill last month?
                     <Slider name={'monthlyBillSlider'}/>
-                     last month bill = ${container.state.averageMonthlyBill}
+                     last month bill = ${container.state.lastMonthBill}
                   </div>
            </Card>
            <Card>
@@ -166,7 +173,7 @@ class DesignForm extends Component {
             <DataComponent data={container}/>
             <CostComponent data={container}/>
           </div>
-            <EnviromentComponent data={container}/>
+          <EnviromentComponent data={container}/>
           <Button className="orderButton">Reserve your panels now</Button>
         </Zone>
         )}
