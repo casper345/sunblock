@@ -59,6 +59,10 @@ const Row = styled.div`
   }
 `
 
+const convertedNumber = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const EnviromentComponent = props => {
   const { tree, carMileDriven, co2 } = props.data.state;
   return(
@@ -87,21 +91,21 @@ const CostComponent = props => {
     <Row>
       <div className="costRow">
         <H4>Gross cost</H4>
-        <P>${ grossCost }</P>
+        <P>${ convertedNumber(grossCost) }</P>
       </div>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
       <div className="costRow">
         <H4>CPSE Rebate</H4>
-        <P>${ cpseRebate }</P>
+        <P>${ convertedNumber(cpseRebate) }</P>
       </div>
     </Row>
     <HorizontalLine width={100}/>
     <Row>
       <div className="costRow">
         <H4>Final Cost</H4>
-        <P>${ finalCost }</P>
+        <P>${convertedNumber(finalCost)}</P>
       </div>
     </Row>
   </Card>
@@ -114,11 +118,11 @@ const DataComponent = props => {
     <Row>
       <DataCard>
         <H4>Annual Savings</H4>
-        <P>${annualSavings}</P>
+        <P>${convertedNumber(annualSavings)}</P>
       </DataCard>
       <DataCard>
         <H4>Average Monthly Credit</H4>
-        <P>${averageMonthlyCredit}</P>
+        <P>${convertedNumber(averageMonthlyCredit)}</P>
       </DataCard>
       <DataCard>
         <H4>Percent of Bill Offset</H4>
@@ -136,7 +140,7 @@ const DataComponent = props => {
       </DataCard>
       <DataCard>
         <H4>Lifetime revenue</H4>
-        <P>${lifetimeRevenue}</P>
+        <P>${convertedNumber(lifetimeRevenue)}</P>
       </DataCard>
     </Row>
   </Card>
