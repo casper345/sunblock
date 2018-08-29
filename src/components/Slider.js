@@ -7,7 +7,6 @@ import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 import Slider from '@material-ui/lab/Slider'
 
 const Zone = styled.div`
-width: 100%;
   display: flex;
   flex-direction: column;
 `

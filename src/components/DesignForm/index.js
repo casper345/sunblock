@@ -16,6 +16,7 @@ import Button from '../Button'
 import Slider from '../Slider'
 import PanelCart from '../PanelCart'
 import HorizontalLine from '../HorizontalLine'
+import TypeSelection from '../TypeSelection'
 
 const Zone = styled.div`
   width: 80%;
@@ -70,11 +71,11 @@ const EnviromentComponent = props => {
     <Row>
       <DataCard>
         <img src={TreeImage} alt='trees by Deemak Daksina from the Noun Project' />
-        {tree} trees planted
+        {convertedNumber(tree)} trees planted
       </DataCard>
       <DataCard>
         <img src={CarImage} alt='Car by Jens Tärning from the Noun Project' />
-        {carMileDriven} miles driven
+        {convertedNumber(carMileDriven)} miles driven
       </DataCard>
       <DataCard>
         <img src={Co2Image} alt='molecule by Abir Alward from the Noun Project' />
@@ -85,12 +86,12 @@ const EnviromentComponent = props => {
 )}
 
 const CostComponent = props => {
-  const { grossCost, cpseRebate, netBenefits, finalCost } = props.data.state;
+  const { grossCost, cpseRebate, finalCost, investmentTaxCredit, acceleratedDepreciation, buyerType } = props.data.state;
   return(
   <Card>
     <Row>
       <div className="costRow">
-        <H4>Gross cost</H4>
+        <H4>Gross // COMBAK: ost</H4>
         <P>${ convertedNumber(grossCost) }</P>
       </div>
     </Row>
@@ -102,6 +103,24 @@ const CostComponent = props => {
       </div>
     </Row>
     <HorizontalLine width={100}/>
+    <TypeSelection />
+    { buyerType !== 'nonprofit' &&
+    <Row>
+      <div className="costRow">
+        <H4>Investment Tax Credit</H4>
+        <P>${convertedNumber(investmentTaxCredit)}</P>
+      </div>
+    </Row>
+    }
+    {
+      buyerType === 'commercial' &&
+      <Row>
+        <div className="costRow">
+          <H4>Accelerated Depreciation</H4>
+          <P>${convertedNumber(acceleratedDepreciation)}</P>
+        </div>
+      </Row>
+    }
     <Row>
       <div className="costRow">
         <H4>Final Cost</H4>

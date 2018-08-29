@@ -4,6 +4,8 @@ import Formula from '../constants/Formula'
 
 class MaxPanelsContainer extends Container {
   state = {
+    buyerType: 'commercial',
+
     lastMonth: new Date().getMonth() - 1,
     panelArray: [''],
     lastMonthBill: 200,
@@ -20,7 +22,9 @@ class MaxPanelsContainer extends Container {
 
     grossCost: 32832,
     cpseRebate: 8703.97,
-    netBenefits: 24128,
+    investmentTaxCredit: 3809.69,
+    acceleratedDepreciation:  3777.94,
+
     finalCost: 16889.62,
 
     tree: 10100,
@@ -28,8 +32,12 @@ class MaxPanelsContainer extends Container {
     co2: 11.1,
   }
 
+  selectionChange = event => {
+    this.setState({ buyerType: event.target.value })
+  }
+
+
   sliderChange = (event, value) => {
-    const bill = value;
     this.setState({
       lastMonthBill: Math.round(value),
     })
@@ -56,7 +64,18 @@ class MaxPanelsContainer extends Container {
 
     let newGrossCost = 360 * panelValue * Formula.GROSS_COST;
     let newCpseRebate = panelValue * Formula.PANEL_PTC * Formula.INVERTER_EFFICEINCY * Formula.CPSE_REBATE;
-    let newFinalCost = newGrossCost - newCpseRebate;
+
+    let netCost = newGrossCost - newCpseRebate;
+    let newInvestmentTaxCredit = 0;
+    let newAcceleratedDepreciation = 0;
+    if(this.state.buyerType === 'commercial' || this.state.buyerType === 'residential'){
+      newInvestmentTaxCredit = netCost * 0.30;
+      if(this.state.buyerType === 'commercial'){
+        newAcceleratedDepreciation = (netCost - (newInvestmentTaxCredit * .5)) * Formula.CORPORATE_TAX_RATE;
+      }
+    }
+
+    let newFinalCost = netCost - newInvestmentTaxCredit - newAcceleratedDepreciation;
     let newPaybackYears = newFinalCost/newAnnualSavings;
     let newIRR = ((1/newPaybackYears) - 0.01) * 100;
 
@@ -83,6 +102,8 @@ class MaxPanelsContainer extends Container {
 
         grossCost: Math.round(newGrossCost),
         cpseRebate: Math.round(newCpseRebate),
+        investmentTaxCredit: Math.round(newInvestmentTaxCredit),
+        acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
         finalCost: Math.round(newFinalCost),
 
         tree: Math.round(newTree),
@@ -104,6 +125,8 @@ class MaxPanelsContainer extends Container {
 
         grossCost: Math.round(newGrossCost),
         cpseRebate: Math.round(newCpseRebate),
+        investmentTaxCredit: Math.round(newInvestmentTaxCredit),
+        acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
         finalCost: Math.round(newFinalCost),
 
         tree: Math.round(newTree),
