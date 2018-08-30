@@ -47,6 +47,9 @@ const DataCard = styled.div`
   img {
     max-width: 40px;
   }
+  .warning {
+    color: red;
+  }
 `
 const Row = styled.div`
   display: flex;
@@ -141,6 +144,11 @@ const DataComponent = props => {
       <DataCard>
         <H4>Percent of Bill Offset</H4>
          <P>{percentOffset}%</P>
+         <div className="warning">
+         {
+           percentOffset >= 120 && <P>*Based on monthly estimate, cannot go over 120% electricity usage</P>
+         }
+       </div>
       </DataCard>
     </Row>
     <Row>
@@ -178,8 +186,6 @@ class DesignForm extends Component {
                  <div>
                    Number of Panels
                    <Slider name={'panelSlider'}/>
-                   Max number of panels you can purchase = {container.state.maxPanels}* <br />
-                   <P>*Based on monthly estimate, cannot go over 120% electricity usage</P>
                  </div>
            </Card>
            <Card className='panelCart'>

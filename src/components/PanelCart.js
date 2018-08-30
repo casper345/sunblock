@@ -7,6 +7,7 @@ import PanelImage from '../assets/images/solar.png'
 import MaxPanelsContainer from '../containers/MaxPanelsContainer'
 
 const Zone = styled.div`
+  max-width: 400px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
