@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Color from '../constants/Color'
 
 import DesignForm from '../components/DesignForm/index'
 

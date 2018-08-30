@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import FaqData from '../assets/faq'
 
-import Color from '../constants/Color'
-
 import { H1, H3, P } from '../components/StyledHeading'
 import Card from '../components/Card'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';

@@ -12,7 +12,6 @@ import Color from '../../constants/Color'
 
 import { H4, P } from '../StyledHeading'
 import Card from '../Card'
-import Button from '../Button'
 import Slider from '../Slider'
 import PanelCart from '../PanelCart'
 import HorizontalLine from '../HorizontalLine'
@@ -87,7 +86,7 @@ const EnviromentComponent = props => {
 )}
 
 const CostComponent = props => {
-  const { grossCost, cpseRebate, finalCost, investmentTaxCredit, acceleratedDepreciation, buyerType } = props.data.state;
+  const { grossCost, cpseRebate, finalCost, investmentTaxCredit, acceleratedDepreciation } = props.data.state;
   return(
   <Card>
     <Row>

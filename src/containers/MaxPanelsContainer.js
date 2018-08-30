@@ -52,6 +52,8 @@ class MaxPanelsContainer extends Container {
       investmentTaxCredit: Math.round(newInvestmentTaxCredit),
       acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
       finalCost: Math.round(newFinalCost),
+      paybackYears: Math.round(newPaybackYears),
+      iRR: Math.round(newIRR),
 
     })
   }
@@ -79,7 +81,6 @@ class MaxPanelsContainer extends Container {
   }
 
   sliderPanelChange = (event, value) => {
-    const panelArrayLength = this.state.panelArray.length;
     const panelValue = value;
 
     let normalizer = Formula.MONTH_NORMALIZER[this.state.lastMonth];
