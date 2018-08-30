@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import HeroImage from '../../assets/images/heroImage3.jpg'
+import HeroImage from '../../assets/images/carports.jpg'
 
 import Color from '../../constants/Color'
 
@@ -25,6 +25,12 @@ const ImageBackground = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  .overlay {
+    background: rgba(241,196,15,0.4);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+  }
 `
 const Section = styled.div`
   position: absolute;
@@ -77,11 +83,13 @@ const Icon = styled.img`
 const Header = () =>
   <Zone>
     <ImageBackground>
-      <Section>
-        <H1>Solar for everyone. <br />On every block.</H1>
-        <HorizontalLine margin={2}/>
-        <H3>Nothing on Your Roof. <br /> Energy without the Worry.</H3>
-      </Section>
+      <div className="overlay">
+        <Section>
+          <H1>Solar for everyone. <br />On every block.</H1>
+          <HorizontalLine margin={2}/>
+          <H3>Nothing on Your Roof. <br /> Energy without the Worry.</H3>
+        </Section>
+      </div>
     </ImageBackground>
     <Row>
       <Card>
