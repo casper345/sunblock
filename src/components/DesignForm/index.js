@@ -17,6 +17,7 @@ import Slider from '../Slider'
 import PanelCart from '../PanelCart'
 import HorizontalLine from '../HorizontalLine'
 import TypeSelection from '../TypeSelection'
+import ContactForm from './ContactForm'
 
 const Zone = styled.div`
   width: 80%;
@@ -197,7 +198,7 @@ class DesignForm extends Component {
             <CostComponent data={container}/>
           </div>
           <EnviromentComponent data={container}/>
-          <Button className="orderButton">Reserve your panels now</Button>
+          <ContactForm />
         </Zone>
         )}
       </Subscribe>

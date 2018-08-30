@@ -42,7 +42,7 @@ const List = styled.div`
   }
 `;
 const ListItem = styled.div`
-  padding: 25px;
+  padding: 10px;
   button {
     width: 100px;
     margin: 0;
@@ -51,7 +51,7 @@ const ListItem = styled.div`
 `;
 const StyledLink = styled(Link)`
   font-size: .7rem;
-  font-weight: 200;
+  font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
   color: #000;

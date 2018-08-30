@@ -26,7 +26,7 @@ const ImageBackground = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   .overlay {
-    background: rgba(241,196,15,0.4);
+    background: rgba(241,196,15,0.2);
     overflow: hidden;
     height: 100%;
     z-index: 2;
@@ -85,9 +85,9 @@ const Header = () =>
     <ImageBackground>
       <div className="overlay">
         <Section>
-          <H1>Solar for everyone. <br />On every block.</H1>
+          <H1>Solar for everyone. On every block.</H1>
           <HorizontalLine margin={2}/>
-          <H3>Nothing on Your Roof. <br /> Energy without the Worry.</H3>
+          <H3>Nothing on Your Roof. Energy without the Worry.</H3>
         </Section>
       </div>
     </ImageBackground>

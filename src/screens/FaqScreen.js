@@ -18,7 +18,6 @@ const Zone = styled.div`
   align-items: center;
   padding-top: 5%;
   padding-bottom: 5%;
-  background-color: ${Color.grey};
 `;
 const List = styled.ol`
   width: 70%;
