@@ -96,10 +96,6 @@ const Header = () =>
         <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
         <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
       </Card>
-      <Card>
-        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
-        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
-      </Card>
     </Row>
   </Zone>
 

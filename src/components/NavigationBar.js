@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import LogoIcon from '../assets/images/logo.png';
 
+import Button from './Button'
+
 const Zone = styled.div`
   width: 100vw;
   position: fixed;
@@ -11,6 +13,7 @@ const Zone = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   background-color: white;
   border-bottom: 2px solid;
   -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
@@ -40,6 +43,11 @@ const List = styled.div`
 `;
 const ListItem = styled.div`
   padding: 25px;
+  button {
+    width: 100px;
+    margin: 0;
+    padding: 5px;
+  }
 `;
 const StyledLink = styled(Link)`
   font-size: .7rem;
@@ -58,8 +66,8 @@ const NavigationBar = () =>
       <ListItem><StyledLink to ="/">Home</StyledLink></ListItem>
       <ListItem><StyledLink to ="/how-gosmartsolar-sunblock-works">How it Works</StyledLink></ListItem>
       <ListItem><StyledLink to="/design-your-solar">Design Yours</StyledLink></ListItem>
-      <ListItem><StyledLink to="/blog">Blog</StyledLink></ListItem>
       <ListItem><StyledLink to="/faq">FAQ</StyledLink></ListItem>
+      <ListItem><Button>Get Started</Button></ListItem>
     </List>
   </Zone>
 
