@@ -1,9 +1,9 @@
 import React from 'react'
-// import Input from '@material-ui/core/Input'
+import styled from 'styled-components'
 
-const InputField = () =>
-<div>
-
-</div>
+const InputField = styled.input`
+  margin: 3%;
+  padding: 3%;
+`
 
 export default InputField

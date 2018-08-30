@@ -33,13 +33,48 @@ class MaxPanelsContainer extends Container {
   }
 
   selectionChange = event => {
-    this.setState({ buyerType: event.target.value })
+    let newBuyerType = event.target.value;
+    let netCost = this.state.grossCost - this.state.cpseRebate;
+    let newInvestmentTaxCredit = 0;
+    let newAcceleratedDepreciation = 0;
+    if(newBuyerType === 'commercial' || newBuyerType === 'residential'){
+      newInvestmentTaxCredit = netCost * 0.30;
+      if(newBuyerType === 'commercial'){
+        newAcceleratedDepreciation = (netCost - (newInvestmentTaxCredit * .5)) * Formula.CORPORATE_TAX_RATE;
+      }
+    }
+
+    let newFinalCost = netCost - newInvestmentTaxCredit - newAcceleratedDepreciation;
+    let newPaybackYears = newFinalCost/this.state.annualSavings;
+    let newIRR = ((1/newPaybackYears) - 0.01) * 100;
+    this.setState({
+      buyerType: event.target.value,
+      investmentTaxCredit: Math.round(newInvestmentTaxCredit),
+      acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
+      finalCost: Math.round(newFinalCost),
+
+    })
   }
 
 
   sliderChange = (event, value) => {
+    let panelValue = this.state.panelArray.length;
+    let newLastMonthBill = value;
+
+    let normalizer = Formula.MONTH_NORMALIZER[this.state.lastMonth];
+    let AvgInput = (newLastMonthBill)/normalizer;
+
+    let sumMonthNormalizer = Formula.MONTH_NORMALIZER.reduce((total,num) => total + num);
+    let AnnualCost = AvgInput * sumMonthNormalizer;
+
+    let AnnualProduction = panelValue * Formula.ANNUAL_PER_PANEL_PRODUCTION;
+
+    let newAnnualSavings = AnnualProduction * Formula.CREDIT_RATE;
+    let newPercentOffset = (newAnnualSavings/AnnualCost) * 100;
+
     this.setState({
-      lastMonthBill: Math.round(value),
+      lastMonthBill: Math.round(newLastMonthBill),
+      percentOffset: Math.round(newPercentOffset),
     })
   }
 
@@ -87,53 +122,27 @@ class MaxPanelsContainer extends Container {
     for(var i = 0; i < panelValue; i++){
       newPanelArray = [...newPanelArray, '']
     }
+    this.setState({
+      panelArray: newPanelArray,
 
-    if(panelValue > panelArrayLength)
-    {
-      this.setState({
-        panelArray: newPanelArray,
+      annualSavings: Math.round(newAnnualSavings),
+      averageMonthlyCredit: Math.round(newAverageMonthlyCredit),
+      percentOffset: Math.round(newPercentOffset),
+      paybackYears: Math.round(newPaybackYears),
+      iRR: Math.round(newIRR),
+      lifetimeRevenue: Math.round(newLifetimeRevenue),
 
-        annualSavings: Math.round(newAnnualSavings),
-        averageMonthlyCredit: Math.round(newAverageMonthlyCredit),
-        percentOffset: Math.round(newPercentOffset),
-        paybackYears: Math.round(newPaybackYears),
-        iRR: Math.round(newIRR),
-        lifetimeRevenue: Math.round(newLifetimeRevenue),
+      grossCost: Math.round(newGrossCost),
+      cpseRebate: Math.round(newCpseRebate),
+      investmentTaxCredit: Math.round(newInvestmentTaxCredit),
+      acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
+      finalCost: Math.round(newFinalCost),
 
-        grossCost: Math.round(newGrossCost),
-        cpseRebate: Math.round(newCpseRebate),
-        investmentTaxCredit: Math.round(newInvestmentTaxCredit),
-        acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
-        finalCost: Math.round(newFinalCost),
+      tree: Math.round(newTree),
+      carMileDriven: Math.round(newCarMileDriven),
+      co2: Math.round(newCo2),
 
-        tree: Math.round(newTree),
-        carMileDriven: Math.round(newCarMileDriven),
-        co2: Math.round(newCo2),
-
-      })
-    }
-    else{
-      this.setState({
-        panelArray: newPanelArray,
-
-        annualSavings: Math.round(newAnnualSavings),
-        averageMonthlyCredit: Math.round(newAverageMonthlyCredit),
-        percentOffset: Math.round(newPercentOffset),
-        paybackYears: Math.round(newPaybackYears),
-        iRR: Math.round(newIRR),
-        lifetimeRevenue: Math.round(newLifetimeRevenue),
-
-        grossCost: Math.round(newGrossCost),
-        cpseRebate: Math.round(newCpseRebate),
-        investmentTaxCredit: Math.round(newInvestmentTaxCredit),
-        acceleratedDepreciation: Math.round(newAcceleratedDepreciation),
-        finalCost: Math.round(newFinalCost),
-
-        tree: Math.round(newTree),
-        carMileDriven: Math.round(newCarMileDriven),
-        co2: Math.round(newCo2),
-      })
-    }
+    })
   }
 }
 

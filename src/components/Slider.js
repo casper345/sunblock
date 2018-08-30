@@ -22,6 +22,7 @@ const EnhancedSlider = ({ name }) => {
               min={0}
               max={500}
               step={1}
+              name={name}
               value={container.state.lastMonthBill}
               aria-labelledby="label" onChange={container.sliderChange} />
           }

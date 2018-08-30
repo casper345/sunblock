@@ -92,7 +92,7 @@ const CostComponent = props => {
   <Card>
     <Row>
       <div className="costRow">
-        <H4>Gross // COMBAK: ost</H4>
+        <H4>Gross Cost</H4>
         <P>${ convertedNumber(grossCost) }</P>
       </div>
     </Row>
@@ -105,23 +105,18 @@ const CostComponent = props => {
     </Row>
     <HorizontalLine width={100}/>
     <TypeSelection />
-    { buyerType !== 'nonprofit' &&
     <Row>
       <div className="costRow">
         <H4>Investment Tax Credit</H4>
         <P>${convertedNumber(investmentTaxCredit)}</P>
       </div>
     </Row>
-    }
-    {
-      buyerType === 'commercial' &&
-      <Row>
-        <div className="costRow">
-          <H4>Accelerated Depreciation</H4>
-          <P>${convertedNumber(acceleratedDepreciation)}</P>
-        </div>
-      </Row>
-    }
+    <Row>
+      <div className="costRow">
+        <H4>Accelerated Depreciation</H4>
+        <P>${convertedNumber(acceleratedDepreciation)}</P>
+      </div>
+    </Row>
     <Row>
       <div className="costRow">
         <H4>Final Cost</H4>
