@@ -15,29 +15,11 @@ const Process = () =>
       <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
     </ContentZone>
   </Section>
-  <Section>
-    <ContentZone>
-      <H4>2. Maintenance Free</H4>
-      <br/>
-      <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
-    </ContentZone>
-    <CityImage src={city} />
-  </Section>
-  <Section>
-    <CityImage src={city} />
-    <ContentZone>
-      <H4>3. Earn Money Instantly</H4>
-      <br/>
-      <P>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore madna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulimaco lavoris nisi ut aliquip ex ea commuodo consequat</P>
-    </ContentZone>
-  </Section>
 </Zone>
 
 const Zone = styled.div`
   width: 80%;
   max-width: 750px;
-  margin-top: 5%;
-  margin-bottom: 10%;
   @media(max-width: 700px){
     width: 90%;
   }

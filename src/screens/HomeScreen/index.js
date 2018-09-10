@@ -5,6 +5,7 @@ import Color from '../../constants/Color'
 
 import Header from './Header'
 import Process from './Process'
+import BlockCards from './BlockCards'
 
 import { H2 } from '../../components/StyledHeading'
 
@@ -55,21 +56,15 @@ const Section = styled.div`
   align-items: center;
   text-align: center;
 `;
-const ProcessSection = styled.div`
-  width: 100%;
-  margin-top: 7%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${Color.white};
-  background-color: ${Color.primaryColor2};
-`;
+
 
 class HomeScreen extends Component {
   render(){
     return(
       <Zone>
         <Header />
+        <BlockCards />
+        <Process />
         <ButtonZone>
           <a href="/how-gosmartsolar-sunblock-works">See How it Works</a>
           <a href="/design-your-solar" className="secondaryButton">Design Solar for You</a>
@@ -78,9 +73,6 @@ class HomeScreen extends Component {
           <H2>Half of US homes don't work for traditional solar.*</H2>
           <H2>We are here to fix that.</H2>
         </Section>
-        <ProcessSection>
-          <Process />
-        </ProcessSection>
       </Zone>
     );
   }

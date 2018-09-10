@@ -10,7 +10,7 @@ import MaxPanelsContainer from '../../containers/MaxPanelsContainer'
 
 import Color from '../../constants/Color'
 
-import { H4, P } from '../StyledHeading'
+import { H1, H2, H3, H4, P } from '../StyledHeading'
 import Card from '../Card'
 import Slider from '../Slider'
 import PanelCart from '../PanelCart'
@@ -33,8 +33,8 @@ const Zone = styled.div`
   }
 `
 const DataCard = styled.div`
-  width: 200px;
-  height: 100px;
+  width: auto;
+  min-height: 100px;
   margin: 1%;
   padding: 1%;
   display: flex;
@@ -42,13 +42,20 @@ const DataCard = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid ${Color.grey};
-  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: white;
   img {
-    max-width: 40px;
+    max-width: 60px;
   }
   .warning {
     color: red;
+  }
+  .enviroCard {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 const Row = styled.div`
@@ -70,22 +77,27 @@ const convertedNumber = (num) => {
 const EnviromentComponent = props => {
   const { tree, carMileDriven, co2 } = props.data.state;
   return(
-  <Card>
-    <Row>
-      <DataCard>
+    <DataCard>
+      <div className="enviroCard">
+      <div>
         <img src={TreeImage} alt='trees by Deemak Daksina from the Noun Project' />
-        {convertedNumber(tree)} trees planted
-      </DataCard>
-      <DataCard>
+        <H1>{convertedNumber(tree)}</H1>
+        <H4>trees planted</H4>
+      </div>
+      <H2>=</H2>
+      <div>
         <img src={CarImage} alt='Car by Jens Tärning from the Noun Project' />
-        {convertedNumber(carMileDriven)} miles driven
-      </DataCard>
-      <DataCard>
+        <H1>{convertedNumber(carMileDriven)}</H1>
+        <H4>car miles offset</H4>
+      </div>
+      <H2>=</H2>
+      <div>
         <img src={Co2Image} alt='molecule by Abir Alward from the Noun Project' />
-        {co2} CO2 metric tons
-      </DataCard>
-    </Row>
-  </Card>
+        <H1>{co2}</H1>
+        <H4>CO2 metric tons</H4>
+      </div>
+      </div>
+    </DataCard>
 )}
 
 const CostComponent = props => {
@@ -94,35 +106,36 @@ const CostComponent = props => {
   <Card>
     <Row>
       <div className="costRow">
-        <H4>Gross Cost</H4>
-        <P>${ convertedNumber(grossCost) }</P>
+        <H3>Gross Cost</H3>
+        <H3>${ convertedNumber(grossCost) }</H3>
       </div>
     </Row>
-    <HorizontalLine width={100}/>
+    <HorizontalLine color={Color.grey} width={100} margin={2}/>
     <Row>
       <div className="costRow">
-        <H4>CPSE Rebate</H4>
-        <P>${ convertedNumber(cpseRebate) }</P>
+        <H3>CPSE Rebate</H3>
+        <H3>${ convertedNumber(cpseRebate) }</H3>
       </div>
     </Row>
-    <HorizontalLine width={100}/>
-    <TypeSelection />
+    <HorizontalLine color={Color.grey} width={100} margin={2}/>
     <Row>
       <div className="costRow">
-        <H4>Investment Tax Credit</H4>
-        <P>${convertedNumber(investmentTaxCredit)}</P>
+        <H3>Investment Tax Credit</H3>
+        <H3>${convertedNumber(investmentTaxCredit)}</H3>
       </div>
     </Row>
+    <HorizontalLine color={Color.grey} width={100} margin={2}/>
     <Row>
       <div className="costRow">
-        <H4>Accelerated Depreciation</H4>
-        <P>${convertedNumber(acceleratedDepreciation)}</P>
+        <H3>Accelerated Depreciation</H3>
+        <H3>${convertedNumber(acceleratedDepreciation)}</H3>
       </div>
     </Row>
+    <HorizontalLine color={Color.grey} width={100} margin={2}/>
     <Row>
       <div className="costRow">
-        <H4>Final Cost</H4>
-        <P>${convertedNumber(finalCost)}</P>
+        <H3>Final Cost</H3>
+        <H3>${convertedNumber(finalCost)}</H3>
       </div>
     </Row>
   </Card>
@@ -131,41 +144,28 @@ const CostComponent = props => {
 const DataComponent = props => {
   const { annualSavings, averageMonthlyCredit, percentOffset, paybackYears, iRR, lifetimeRevenue } = props.data.state;
   return(
-  <Card>
+  <div>
     <Row>
       <DataCard>
-        <H4>Annual Savings</H4>
-        <P>${convertedNumber(annualSavings)}</P>
-      </DataCard>
-      <DataCard>
+        <H1>${convertedNumber(averageMonthlyCredit)}</H1>
         <H4>Average Monthly Credit</H4>
-        <P>${convertedNumber(averageMonthlyCredit)}</P>
       </DataCard>
       <DataCard>
-        <H4>Percent of Bill Offset</H4>
-         <P>{percentOffset}%</P>
-         <div className="warning">
-         {
-           percentOffset >= 120 && <P>*Based on monthly estimate, cannot go over 120% electricity usage</P>
-         }
-       </div>
+        <H1>{iRR}%</H1>
+        <H4>IRR</H4>
       </DataCard>
     </Row>
     <Row>
       <DataCard>
+        <H1>{paybackYears} yrs</H1>
         <H4>Payback Years</H4>
-        <P>{paybackYears} yrs</P>
       </DataCard>
       <DataCard>
-        <H4>IRR</H4>
-        <P>{iRR}%</P>
-      </DataCard>
-      <DataCard>
+        <H1>${convertedNumber(lifetimeRevenue)}</H1>
         <H4>Lifetime revenue</H4>
-        <P>${convertedNumber(lifetimeRevenue)}</P>
       </DataCard>
     </Row>
-  </Card>
+  </div>
 )}
 
 class DesignForm extends Component {
@@ -177,26 +177,20 @@ class DesignForm extends Component {
           <div className="firstSection">
            <Card>
                   <div>
-                    How much was your CPS bill last month?
+                    How much was your CPS bill last month? ${container.state.lastMonthBill}
                     <Slider name={'monthlyBillSlider'}/>
-                     last month bill = ${container.state.lastMonthBill}
                   </div>
            </Card>
            <Card>
                  <div>
-                   Number of Panels
+                   Want more or less panels? {container.state.panelArray.length}
                    <Slider name={'panelSlider'}/>
                  </div>
            </Card>
-           <Card className='panelCart'>
-             <PanelCart />
-           </Card>
           </div>
-
-          <div className="secondSection">
-            <DataComponent data={container}/>
-            <CostComponent data={container}/>
-          </div>
+          <TypeSelection />
+          <DataComponent data={container}/>
+          <CostComponent data={container}/>
           <EnviromentComponent data={container}/>
           <ContactForm />
         </Zone>

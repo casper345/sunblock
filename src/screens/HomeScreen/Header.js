@@ -5,7 +5,7 @@ import HeroImage from '../../assets/images/carports.jpg'
 
 import Color from '../../constants/Color'
 
-import { H1, H3, P } from '../../components/StyledHeading'
+import { H1, H3, H4, P } from '../../components/StyledHeading'
 import HorizontalLine from '../../components/HorizontalLine'
 
 const Zone = styled.div`
@@ -14,11 +14,10 @@ const Zone = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5%;
 `
 const ImageBackground = styled.div`
   width: 100%;
-  height: 400px;
+  height: 100vh;
   position: relative;
   background-image: url(${HeroImage});
   background-color: ${Color.grey};
@@ -26,85 +25,41 @@ const ImageBackground = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   .overlay {
-    background: rgba(241,196,15,0.2);
+    background: rgba(0,0,0,0.55);
     overflow: hidden;
     height: 100%;
     z-index: 2;
   }
 `
 const Section = styled.div`
+  padding: 2%;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media(max-width: 500px){
-    padding-top: 10%;
-  }
-`
-const Card = styled.div`
-  width: 20%;
-  max-width: 150px;
-  min-width: 80px;
-  margin: 0;
-  padding: 1%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background-color: white;
-  @media(max-width: 500px){
-    width: 90%;
-    max-width: 300px;
+  color: ${Color.white};
+  background-image: linear-gradient(${Color.secondaryColor}, ${Color.secondaryColor});
+  .sunriseTitle {
+    margin: 0 0 5px 0;
+    font-weight: 200;
+    letter-spacing: 5px;
+    text-transform: uppercase;
   }
 `
-const Row = styled.div`
-  width: 80%;
-  max-width: 750px;
-  margin: -70px 0 0 0;
-  z-index: 500;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  @media(max-width: 500px){
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px;
-  }
-`
-const Icon = styled.img`
-  width: 20%;
-  height: 20%;
-  margin: 10px;
-`;
 
 const Header = () =>
   <Zone>
     <ImageBackground>
       <div className="overlay">
         <Section>
-          <H1>Solar for everyone. On every block.</H1>
-          <HorizontalLine margin={2}/>
+          <h4 className="sunriseTitle">Sunbank</h4>
+          <H1>Solar for everyone.<br /> On every block.</H1>
+          <HorizontalLine width={100} margin={3} color={Color.white}/>
           <H3>Nothing on Your Roof. Energy without the Worry.</H3>
         </Section>
       </div>
     </ImageBackground>
-    <Row>
-      <Card>
-        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
-        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
-      </Card>
-      <Card>
-        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
-        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
-      </Card>
-      <Card>
-        <Icon src={require('../../assets/images/instagram.png')} alt="Instagram Link"/>
-        <P>Lower operating expenses equals higher profits and returns for your partners. Put solar to work for you and your shareholders.</P>
-      </Card>
-    </Row>
   </Zone>
 
 export default Header;

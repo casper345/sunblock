@@ -5,7 +5,7 @@ export const H1 = styled.h1`
   margin: 0;
   font-size: 35px;
   line-height: 1.25;
-  font-weight: 500;
+  font-weight: 200;
   @media (min-width: 43.75em) {
       ${'' /* font-size: 2.5em;
       line-height: 1.125; */}
@@ -45,8 +45,8 @@ export const H3 = styled.h3`
 `;
 export const H4 = styled.h4`
   margin: 0;
-font-size: .8em;
-line-height: 1.11111111;
+  font-size: .8em;
+  line-height: 1.11111111;
   @media (min-width: 43.75em) {
     ${'' /* line-height: 1.22222222; */}
   }

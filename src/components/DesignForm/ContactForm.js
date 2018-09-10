@@ -34,6 +34,7 @@ class ContactForm extends Component {
       lastName: '',
       email: '',
       phone: '',
+      zip: '',
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -76,10 +77,17 @@ class ContactForm extends Component {
           <InputField
             type="tel"
             name="phone"
-            placeholder="phone number"
+            placeholder="(555)555-5555"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             onChange={this.handleChange}
             value={this.state.phone}
+          />
+          <InputField
+            type="number"
+            name="zip"
+            placeholder="78205"
+            onChange={this.handleChange}
+            value={this.state.zip}
           />
           <button type="submit">Submit</button>
         </FormZone>

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import LogoIcon from '../assets/images/logo.png';
 
+import Color from '../constants/Color'
 import Button from './Button'
 
 const Zone = styled.div`
@@ -14,17 +15,11 @@ const Zone = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  border-bottom: 2px solid;
-  -moz-border-image: -moz-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-  -webkit-border-image: -webkit-linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-  border-image: linear-gradient(to left, #F2C94C 0%,#F2C94C 25%,#F2C94C 50%,#F2994A 75%,#F2994A 100%);
-  border-image-slice: 1;
   @media (max-width:700px){
     flex-direction: column;
     justify-content: center;
   }
-`;
+`
 const Logo = styled.img`
   width: 80px;
   height: 60px;
@@ -33,14 +28,14 @@ const Logo = styled.img`
   @media (max-width:700px){
     align-self: center;
   }
-`;
+`
 const List = styled.div`
   display: flex;
   flex-direction: row;
   @media (max-width: 700px){
     justify-content: center;
   }
-`;
+`
 const ListItem = styled.div`
   padding: 10px;
   button {
@@ -48,14 +43,18 @@ const ListItem = styled.div`
     margin: 0;
     padding: 5px;
   }
-`;
+`
 const StyledLink = styled(Link)`
   font-size: .7rem;
-  font-weight: 400;
+  font-weight: 250;
+  letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
-  color: #000;
-`;
+  color: ${Color.white};
+  &:hover {
+    color: ${Color.primaryColor};
+  }
+`
 
 const NavigationBar = () =>
   <Zone>

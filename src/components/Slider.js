@@ -19,7 +19,7 @@ const EnhancedSlider = ({ name }) => {
           {
             name === 'monthlyBillSlider' &&
             <Slider
-              min={0}
+              min={1}
               max={500}
               step={1}
               name={name}
@@ -29,7 +29,7 @@ const EnhancedSlider = ({ name }) => {
           {
             name === 'panelSlider' &&
             <Slider
-              min={0}
+              min={1}
               max={100}
               step={1}
               value={container.state.panelArray.length}

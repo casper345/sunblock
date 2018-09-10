@@ -10,7 +10,6 @@ const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2%;
   padding-bottom: 5%;
 `;
 const Heading = styled.div`
@@ -31,7 +30,7 @@ class DesignScreen extends Component {
   render(){
     return(
       <Zone>
-        <Heading>
+      <Heading>
           <H1>Design Your Solar</H1>
           <HorizontalLine />
           <P>
