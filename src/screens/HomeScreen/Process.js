@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import city from '../../assets/images/city.png'
+import Color from '../../constants/Color'
 import { H2, P } from '../../components/StyledHeading'
 
 const Zone = styled.div`
@@ -39,7 +40,7 @@ const Process = () =>
   <Section>
     <CityImage src={city} />
     <ContentZone>
-      <H2>Half of US homes don't work for traditional solar.*</H2>
+      <H2><span style={{color: Color.primaryColor}}>50% of US homes</span> don't work for traditional solar.*</H2>
       <H2>We are here to fix that.</H2>
       <P id='subtitle'>lorem ipsum dolor sit amet, consectetur adipiscing elitd tempor incididunt ut labore et dolore madna aliqua.</P>
     </ContentZone>

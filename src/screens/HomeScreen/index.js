@@ -23,7 +23,7 @@ const Zone = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     .overlay {
-      background: rgba(21,184,245,0.7);
+      background:rgb(59,89,152,0.85);
       overflow: hidden;
       height: 100%;
       z-index: 2;
@@ -34,6 +34,8 @@ const Zone = styled.div`
       margin-left: 5%;
       .subtitle {
         margin: 2% 0;
+        font-weight: 300;
+        line-height: 1.5rem;
       }
     }
   }
