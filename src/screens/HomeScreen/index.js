@@ -1,20 +1,43 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import HeroImage from '../../assets/images/solar2.jpg'
 import Color from '../../constants/Color'
-
 import Header from './Header'
 import Process from './Process'
 import BlockCards from './BlockCards'
-
-import { H2 } from '../../components/StyledHeading'
+import { H1, H3 } from '../../components/StyledHeading'
 
 const Zone = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
+  background-color: ${Color.lightBlue};
+  .callToAction {
+    width: 100vw;
+    height: 400px;
+    color: white;
+    background-image: url(${HeroImage});
+    background-color: ${Color.grey};
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .overlay {
+      background: rgba(21,184,245,0.7);
+      overflow: hidden;
+      height: 100%;
+      z-index: 2;
+    }
+    .section {
+      width: 60%;
+      margin-top: 8%;
+      margin-left: 5%;
+      .subtitle {
+        margin: 2% 0;
+      }
+    }
+  }
+`
 const ButtonZone = styled.div`
   display: flex;
   flex-direction: row;
@@ -35,7 +58,7 @@ const ButtonZone = styled.div`
     &:hover{
       color:  ${Color.primaryColor};
       border: 1px solid  ${Color.primaryColor};
-      background-color: white;
+      background-color: transparent;
     }
   }
   .secondaryButton {
@@ -49,14 +72,7 @@ const ButtonZone = styled.div`
   @media(max-width: 500px){
     flex-direction: column;
   }
-`;
-const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
-
+`
 
 class HomeScreen extends Component {
   render(){
@@ -65,14 +81,18 @@ class HomeScreen extends Component {
         <Header />
         <BlockCards />
         <Process />
-        <ButtonZone>
-          <a href="/how-gosmartsolar-sunblock-works">See How it Works</a>
-          <a href="/design-your-solar" className="secondaryButton">Design Solar for You</a>
-        </ButtonZone>
-        <Section>
-          <H2>Half of US homes don't work for traditional solar.*</H2>
-          <H2>We are here to fix that.</H2>
-        </Section>
+        <div className="callToAction">
+          <div className="overlay">
+          <div className="section">
+            <H1>Why choose Us and SunBank?</H1>
+            <H3 className="subtitle">After years of experience and more than 500,00 people powered with the help of our solar panels, we think the choice is really obvious here!</H3>
+            <ButtonZone>
+              <a href="/how-gosmartsolar-sunblock-works" className="secondaryButton">See How it Works</a>
+              <a href="/design-your-solar" className="secondaryButton">Design Solar for You</a>
+            </ButtonZone>
+          </div>
+          </div>
+        </div>
       </Zone>
     );
   }
