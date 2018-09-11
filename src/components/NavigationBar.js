@@ -15,6 +15,7 @@ const Zone = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: ${Color.white};
   @media (max-width:700px){
     flex-direction: column;
     justify-content: center;
@@ -50,7 +51,7 @@ const StyledLink = styled(Link)`
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
-  color: ${Color.white};
+  color: ${Color.black};
   &:hover {
     color: ${Color.primaryColor};
   }

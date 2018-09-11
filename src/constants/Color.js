@@ -5,6 +5,7 @@ export default {
   secondaryColor2: '#f39c12',
   grey: 'rgb(238,238,238)',
   lightBlue: 'rgb(236, 242, 244)',
-  white: '#fff',
   lightBrown: 'rgb(243, 237, 231)',
+  white: '#fff',
+  black: '#000',
 };

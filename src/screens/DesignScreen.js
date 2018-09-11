@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import Color from '../constants/Color'
 import DesignForm from '../components/DesignForm/index'
-
 import HorizontalLine from '../components/HorizontalLine'
 import { H1, P } from '../components/StyledHeading'
 
 const Zone = styled.div`
+  padding: 120px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 5%;
-`;
+  background-color: ${Color.lightBlue};
+`
 const Heading = styled.div`
   width: 60%;
   margin-bottom: 2%;

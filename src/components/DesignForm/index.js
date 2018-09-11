@@ -25,11 +25,11 @@ const Zone = styled.div`
   align-items: center;
   .firstSection {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .secondSection {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 `
 const DataCard = styled.div`
@@ -52,6 +52,7 @@ const DataCard = styled.div`
   }
   .enviroCard {
     width: 500px;
+    padding: 4%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -174,6 +175,7 @@ class DesignForm extends Component {
       <Subscribe to={[MaxPanelsContainer]}>
         {container => (
         <Zone>
+          <Row>
           <div className="firstSection">
            <Card>
                   <div>
@@ -183,11 +185,24 @@ class DesignForm extends Component {
            </Card>
            <Card>
                  <div>
-                   Want more or less panels? {container.state.panelArray.length}
+                   Want more or less panels?
                    <Slider name={'panelSlider'}/>
                  </div>
            </Card>
           </div>
+          <div className="firstSection">
+           <Card>
+                  <div>
+                    Your recommended solar installations size. This will cover {container.state.percentOffset}% of your usage
+                  </div>
+           </Card>
+           <Card>
+                 <div>
+                   Number of solar PV Panels {container.state.panelArray.length}
+                 </div>
+           </Card>
+          </div>
+          </Row>
           <TypeSelection />
           <DataComponent data={container}/>
           <CostComponent data={container}/>

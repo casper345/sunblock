@@ -15,7 +15,7 @@ class MaxPanelsContainer extends Container {
 
     annualSavings: 1913,
     averageMonthlyCredit: 159.47,
-    percentOffset: 80,
+    percentOffset: 3,
     paybackYears: 8,
     iRR: 10.33,
     lifetimeRevenue: 47842,

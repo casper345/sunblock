@@ -4,7 +4,7 @@ import Color from '../constants/Color'
 import GssIcon from '../assets/images/logo.png'
 import SunblockIcon from '../assets/images/logo.png'
 import CpsIcon from '../assets/images/cps.png'
-import { H2, H3 } from './StyledHeading'
+import { H2, H3, H4 } from './StyledHeading'
 import Button from './Button'
 
 const Zone = styled.div`
@@ -22,6 +22,10 @@ const TopSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media(max-width: 650px) {
+    // flex-direction: column;
+    // align-items: center;
+  }
 `
 const Icon = styled.img`
   max-width: 25px;
@@ -47,8 +51,8 @@ const SponserContainer = styled.div`
   img {
     margin-top: 5%;
     padding: 2%;
-    width: 150px;
-    height: 80px;
+    width: 180px;
+    height: 90px;
     border-radius: 5px;
     background-color: ${Color.white};
   }
@@ -99,7 +103,7 @@ const Footer = () =>
         <img
           src={SunblockIcon}
         />
-        <H3 className="logoSubtitle">We are an environmentally conscious renewable energy company that offers the most eco-friendly, cost efficent and high-energy generating products and solutiopns on the solar panels market!</H3>
+        <H4 className="logoSubtitle">We are an environmentally conscious renewable energy company that offers the most eco-friendly, cost efficent and high-energy generating products and solutiopns on the solar panels market!</H4>
       </LogoContainer>
       <SponserContainer className="section">
         <img src={CpsIcon} />

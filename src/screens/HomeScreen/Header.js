@@ -25,7 +25,7 @@ const ImageBackground = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   .overlay {
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.25);
     overflow: hidden;
     height: 100%;
     z-index: 2;
